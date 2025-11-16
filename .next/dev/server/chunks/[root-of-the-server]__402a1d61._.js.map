@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 28, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Hani/ForesterSwap/pages/api/auth/signup.js"],"sourcesContent":["import { auth } from \"@/lib/firebase\";\r\nimport { createUserWithEmailAndPassword, updateProfile } from \"firebase/auth\";\r\n\r\nexport default async function handler(req, res) {\r\n  if (req.method !== \"POST\") return res.status(405).end();\r\n\r\n  const { email, password, name } = req.body;\r\n\r\n  try {\r\n    const userCred = await createUserWithEmailAndPassword(auth, email, password);\r\n    await updateProfile(userCred.user, { displayName: name });\r\n\r\n    return res.status(200).json({ uid: userCred.user.uid });\r\n  } catch (err) {\r\n    return res.status(400).json({ error: err.message });\r\n  }\r\n}\r\n"],"names":[],"mappings":";;;;;;;;;AACA;;;;;;;AAEe,eAAe,QAAQ,GAAG,EAAE,GAAG;IAC5C,IAAI,IAAI,MAAM,KAAK,QAAQ,OAAO,IAAI,MAAM,CAAC,KAAK,GAAG;IAErD,MAAM,EAAE,KAAK,EAAE,QAAQ,EAAE,IAAI,EAAE,GAAG,IAAI,IAAI;IAE1C,IAAI;QACF,MAAM,WAAW,MAAM,IAAA,kKAA8B,EAAC,MAAM,OAAO;QACnE,MAAM,IAAA,iJAAa,EAAC,SAAS,IAAI,EAAE;YAAE,aAAa;QAAK;QAEvD,OAAO,IAAI,MAAM,CAAC,KAAK,IAAI,CAAC;YAAE,KAAK,SAAS,IAAI,CAAC,GAAG;QAAC;IACvD,EAAE,OAAO,KAAK;QACZ,OAAO,IAAI,MAAM,CAAC,KAAK,IAAI,CAAC;YAAE,OAAO,IAAI,OAAO;QAAC;IACnD;AACF"}}]
+}

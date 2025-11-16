@@ -1,0 +1,5 @@
+{
+  "/auth-test": [
+    "static/chunks/pages/auth-test.js"
+  ]
+}
