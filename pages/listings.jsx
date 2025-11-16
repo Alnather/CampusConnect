@@ -124,9 +124,9 @@ export default function Listings({ user, loading }) {
                 onClick={() => router.push(`/listing/${listing.id}`)}
               >
                 {/* Image */}
-                {listing.imageUrl ? (
+                {listing.photo ? (
                   <img
-                    src={listing.imageUrl}
+                    src={listing.photo}
                     alt={listing.name}
                     className="w-full h-48 object-cover rounded-lg mb-4"
                   />

@@ -576,9 +576,9 @@ function Navbar({ user }) {
                                 columnNumber: 13
                             }, this),
                             user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/my-products",
+                                href: "/create-listing",
                                 className: "text-gray-700 hover:text-primary-600 font-medium transition",
-                                children: "My Products"
+                                children: "Create Listing"
                             }, void 0, false, {
                                 fileName: "[project]/components/Navbar.jsx",
                                 lineNumber: 38,
@@ -781,7 +781,7 @@ function CreateListing({ user, loading }) {
                 userId: user.uid,
                 userName: user.displayName || "Anonymous",
                 createdAt: new Date().toISOString(),
-                imageUrl: imagePreview || ""
+                photo: imagePreview || ""
             };
             const docRef = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], "products"), listingData);
             // Add product reference to user's products array

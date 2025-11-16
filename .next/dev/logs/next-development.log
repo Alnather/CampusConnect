@@ -6,3 +6,12 @@
 [00:08:58.090] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
 [00:09:47.219] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
 [00:09:50.151] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
+[00:12:05.532] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:12:12.286] Browser ERROR   Error creating listing: {"code":"permission-denied","name":"FirebaseError"}
+[00:13:41.228] Server  LOG      ✓ Compiled in 30ms
+[00:13:48.698] Server  LOG      ✓ Compiled in 53ms
+[00:14:00.602] Server  LOG      ✓ Compiled in 38ms
+[00:14:06.152] Server  LOG      ✓ Compiled in 28ms
+[00:15:40.530] Server  LOG      ✓ Compiled in 21ms
+[00:15:49.674] Browser ERROR   Error creating listing: {"code":"permission-denied","name":"FirebaseError"}
+[00:16:08.344] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior

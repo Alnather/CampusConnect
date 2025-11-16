@@ -19,6 +19,12 @@ export default function Signup() {
     e.preventDefault();
     setError("");
 
+    // Validation - Check for @lakeforest.edu email
+    if (!email.endsWith("@lakeforest.edu")) {
+      setError("You must use a @lakeforest.edu email address to sign up");
+      return;
+    }
+
     // Validation
     if (password !== confirmPassword) {
       setError("Passwords do not match");
@@ -106,7 +112,7 @@ export default function Signup() {
 
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-              Email Address
+              Email Address (Lake Forest College)
             </label>
             <input
               id="email"
@@ -115,8 +121,11 @@ export default function Signup() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="input-field"
-              placeholder="you@example.com"
+              placeholder="you@lakeforest.edu"
             />
+            <p className="text-xs text-gray-500 mt-1">
+              Must be a @lakeforest.edu email address
+            </p>
           </div>
 
           <div>

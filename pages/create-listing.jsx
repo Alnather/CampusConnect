@@ -72,7 +72,7 @@ export default function CreateListing({ user, loading }) {
         userId: user.uid,
         userName: user.displayName || "Anonymous",
         createdAt: new Date().toISOString(),
-        imageUrl: imagePreview || "", // Will be updated if image is uploaded
+        photo: imagePreview || "", // Store as string (base64 or URL)
       };
 
       const docRef = await addDoc(collection(db, "products"), listingData);

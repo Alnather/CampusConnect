@@ -102,9 +102,9 @@ function Navbar({ user }) {
                                 columnNumber: 13
                             }, this),
                             user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/my-products",
+                                href: "/create-listing",
                                 className: "text-gray-700 hover:text-primary-600 font-medium transition",
-                                children: "My Products"
+                                children: "Create Listing"
                             }, void 0, false, {
                                 fileName: "[project]/components/Navbar.jsx",
                                 lineNumber: 38,
@@ -416,8 +416,8 @@ function Listings({ user, loading }) {
                                 className: "card cursor-pointer",
                                 onClick: ()=>router.push(`/listing/${listing.id}`),
                                 children: [
-                                    listing.imageUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
-                                        src: listing.imageUrl,
+                                    listing.photo ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
+                                        src: listing.photo,
                                         alt: listing.name,
                                         className: "w-full h-48 object-cover rounded-lg mb-4"
                                     }, void 0, false, {
