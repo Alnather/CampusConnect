@@ -751,10 +751,39 @@ function CreateListing({ user, loading }) {
     function handleImageChange(e) {
         const file = e.target.files[0];
         if (file) {
-            setImage(file);
+            // Create an image element to compress
             const reader = new FileReader();
             reader.onloadend = ()=>{
-                setImagePreview(reader.result);
+                const img = new Image();
+                img.onload = ()=>{
+                    // Create canvas for compression
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    // Calculate new dimensions (max 800px width/height)
+                    let width = img.width;
+                    let height = img.height;
+                    const maxSize = 800;
+                    if (width > height) {
+                        if (width > maxSize) {
+                            height = height * maxSize / width;
+                            width = maxSize;
+                        }
+                    } else {
+                        if (height > maxSize) {
+                            width = width * maxSize / height;
+                            height = maxSize;
+                        }
+                    }
+                    canvas.width = width;
+                    canvas.height = height;
+                    // Draw and compress image
+                    ctx.drawImage(img, 0, 0, width, height);
+                    // Convert to base64 with compression (0.7 quality)
+                    const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7);
+                    setImage(file);
+                    setImagePreview(compressedDataUrl);
+                };
+                img.src = reader.result;
             };
             reader.readAsDataURL(file);
         }
@@ -804,7 +833,7 @@ function CreateListing({ user, loading }) {
                     user: user
                 }, void 0, false, {
                     fileName: "[project]/pages/create-listing.jsx",
-                    lineNumber: 97,
+                    lineNumber: 132,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -814,18 +843,18 @@ function CreateListing({ user, loading }) {
                         children: "Loading..."
                     }, void 0, false, {
                         fileName: "[project]/pages/create-listing.jsx",
-                        lineNumber: 99,
+                        lineNumber: 134,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/create-listing.jsx",
-                    lineNumber: 98,
+                    lineNumber: 133,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/pages/create-listing.jsx",
-            lineNumber: 96,
+            lineNumber: 131,
             columnNumber: 7
         }, this);
     }
@@ -837,7 +866,7 @@ function CreateListing({ user, loading }) {
                     user: user
                 }, void 0, false, {
                     fileName: "[project]/pages/create-listing.jsx",
-                    lineNumber: 108,
+                    lineNumber: 143,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -848,7 +877,7 @@ function CreateListing({ user, loading }) {
                             children: "Please Log In"
                         }, void 0, false, {
                             fileName: "[project]/pages/create-listing.jsx",
-                            lineNumber: 110,
+                            lineNumber: 145,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -856,7 +885,7 @@ function CreateListing({ user, loading }) {
                             children: "You need to be logged in to create a listing"
                         }, void 0, false, {
                             fileName: "[project]/pages/create-listing.jsx",
-                            lineNumber: 113,
+                            lineNumber: 148,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -865,19 +894,19 @@ function CreateListing({ user, loading }) {
                             children: "Log In"
                         }, void 0, false, {
                             fileName: "[project]/pages/create-listing.jsx",
-                            lineNumber: 116,
+                            lineNumber: 151,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/create-listing.jsx",
-                    lineNumber: 109,
+                    lineNumber: 144,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/pages/create-listing.jsx",
-            lineNumber: 107,
+            lineNumber: 142,
             columnNumber: 7
         }, this);
     }
@@ -888,7 +917,7 @@ function CreateListing({ user, loading }) {
                 user: user
             }, void 0, false, {
                 fileName: "[project]/pages/create-listing.jsx",
-                lineNumber: 126,
+                lineNumber: 161,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -903,7 +932,7 @@ function CreateListing({ user, loading }) {
                                 children: "Create New Listing"
                             }, void 0, false, {
                                 fileName: "[project]/pages/create-listing.jsx",
-                                lineNumber: 131,
+                                lineNumber: 166,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -911,7 +940,7 @@ function CreateListing({ user, loading }) {
                                 children: "Share an item you'd like to swap or trade"
                             }, void 0, false, {
                                 fileName: "[project]/pages/create-listing.jsx",
-                                lineNumber: 134,
+                                lineNumber: 169,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -923,7 +952,7 @@ function CreateListing({ user, loading }) {
                                         children: error
                                     }, void 0, false, {
                                         fileName: "[project]/pages/create-listing.jsx",
-                                        lineNumber: 140,
+                                        lineNumber: 175,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -934,7 +963,7 @@ function CreateListing({ user, loading }) {
                                                 children: "Item Name *"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                lineNumber: 147,
+                                                lineNumber: 182,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -947,13 +976,13 @@ function CreateListing({ user, loading }) {
                                                 placeholder: "e.g., Vintage Camera, Soccer Ball, Textbook"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                lineNumber: 153,
+                                                lineNumber: 188,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/create-listing.jsx",
-                                        lineNumber: 146,
+                                        lineNumber: 181,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -964,7 +993,7 @@ function CreateListing({ user, loading }) {
                                                 children: "Description *"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                lineNumber: 166,
+                                                lineNumber: 201,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -977,13 +1006,13 @@ function CreateListing({ user, loading }) {
                                                 placeholder: "Describe your item, its condition, and what you're looking to swap for..."
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                lineNumber: 172,
+                                                lineNumber: 207,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/create-listing.jsx",
-                                        lineNumber: 165,
+                                        lineNumber: 200,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -993,7 +1022,7 @@ function CreateListing({ user, loading }) {
                                                 children: "Photo (Optional)"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                lineNumber: 185,
+                                                lineNumber: 220,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1009,7 +1038,7 @@ function CreateListing({ user, loading }) {
                                                                 className: "hidden"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                                lineNumber: 190,
+                                                                lineNumber: 225,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1017,13 +1046,13 @@ function CreateListing({ user, loading }) {
                                                                 children: "Choose Image"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                                lineNumber: 196,
+                                                                lineNumber: 231,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/pages/create-listing.jsx",
-                                                        lineNumber: 189,
+                                                        lineNumber: 224,
                                                         columnNumber: 19
                                                     }, this),
                                                     imagePreview && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1035,7 +1064,7 @@ function CreateListing({ user, loading }) {
                                                                 className: "w-24 h-24 object-cover rounded-lg"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                                lineNumber: 202,
+                                                                lineNumber: 237,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1048,25 +1077,25 @@ function CreateListing({ user, loading }) {
                                                                 children: "✕"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                                lineNumber: 207,
+                                                                lineNumber: 242,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/pages/create-listing.jsx",
-                                                        lineNumber: 201,
+                                                        lineNumber: 236,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                lineNumber: 188,
+                                                lineNumber: 223,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/create-listing.jsx",
-                                        lineNumber: 184,
+                                        lineNumber: 219,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1076,7 +1105,7 @@ function CreateListing({ user, loading }) {
                                                 children: "Categories * (Select at least one)"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                lineNumber: 224,
+                                                lineNumber: 259,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1091,7 +1120,7 @@ function CreateListing({ user, loading }) {
                                                                 className: "w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                                lineNumber: 237,
+                                                                lineNumber: 272,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1099,24 +1128,24 @@ function CreateListing({ user, loading }) {
                                                                 children: category.label
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                                lineNumber: 243,
+                                                                lineNumber: 278,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, category.id, true, {
                                                         fileName: "[project]/pages/create-listing.jsx",
-                                                        lineNumber: 229,
+                                                        lineNumber: 264,
                                                         columnNumber: 21
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                lineNumber: 227,
+                                                lineNumber: 262,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/create-listing.jsx",
-                                        lineNumber: 223,
+                                        lineNumber: 258,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1129,7 +1158,7 @@ function CreateListing({ user, loading }) {
                                                 children: submitting ? "Creating Listing..." : "Create Listing"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                lineNumber: 253,
+                                                lineNumber: 288,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1140,41 +1169,41 @@ function CreateListing({ user, loading }) {
                                                 children: "Cancel"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-listing.jsx",
-                                                lineNumber: 260,
+                                                lineNumber: 295,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/create-listing.jsx",
-                                        lineNumber: 252,
+                                        lineNumber: 287,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/create-listing.jsx",
-                                lineNumber: 138,
+                                lineNumber: 173,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/create-listing.jsx",
-                        lineNumber: 130,
+                        lineNumber: 165,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/create-listing.jsx",
-                    lineNumber: 129,
+                    lineNumber: 164,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/create-listing.jsx",
-                lineNumber: 128,
+                lineNumber: 163,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/create-listing.jsx",
-        lineNumber: 125,
+        lineNumber: 160,
         columnNumber: 5
     }, this);
 }

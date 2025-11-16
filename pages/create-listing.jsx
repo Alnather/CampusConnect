@@ -37,10 +37,45 @@ export default function CreateListing({ user, loading }) {
   function handleImageChange(e) {
     const file = e.target.files[0];
     if (file) {
-      setImage(file);
+      // Create an image element to compress
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImagePreview(reader.result);
+        const img = new Image();
+        img.onload = () => {
+          // Create canvas for compression
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          
+          // Calculate new dimensions (max 800px width/height)
+          let width = img.width;
+          let height = img.height;
+          const maxSize = 800;
+          
+          if (width > height) {
+            if (width > maxSize) {
+              height = (height * maxSize) / width;
+              width = maxSize;
+            }
+          } else {
+            if (height > maxSize) {
+              width = (width * maxSize) / height;
+              height = maxSize;
+            }
+          }
+          
+          canvas.width = width;
+          canvas.height = height;
+          
+          // Draw and compress image
+          ctx.drawImage(img, 0, 0, width, height);
+          
+          // Convert to base64 with compression (0.7 quality)
+          const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7);
+          
+          setImage(file);
+          setImagePreview(compressedDataUrl);
+        };
+        img.src = reader.result;
       };
       reader.readAsDataURL(file);
     }
