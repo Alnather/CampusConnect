@@ -2,13 +2,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
+import { useState } from "react";
 
 export default function Navbar({ user }) {
   const router = useRouter();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   async function handleLogout() {
     try {
       await signOut(auth);
+      setMobileMenuOpen(false);
       router.push("/login");
     } catch (error) {
       console.error("Logout error:", error);
@@ -26,7 +29,7 @@ export default function Navbar({ user }) {
             </div>
           </Link>
 
-          {/* Navigation Links */}
+          {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/" className="text-gray-700 hover:text-primary-600 font-medium transition">
               Home
@@ -46,11 +49,28 @@ export default function Navbar({ user }) {
             )}
           </div>
 
-          {/* User Section */}
-          <div className="flex items-center space-x-4">
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+
+          {/* User Section - Desktop */}
+          <div className="hidden md:flex items-center space-x-4">
             {user ? (
               <>
-                <div className="hidden md:flex items-center space-x-2 text-gray-700">
+                <div className="flex items-center space-x-2 text-gray-700">
                   <span className="font-medium">
                     {user.displayName || user.email}
                   </span>
@@ -80,6 +100,73 @@ export default function Navbar({ user }) {
             )}
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden py-4 border-t border-gray-200">
+            <div className="flex flex-col space-y-3">
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition"
+              >
+                Home
+              </Link>
+              <Link
+                href="/listings"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition"
+              >
+                Listings
+              </Link>
+              {user && (
+                <>
+                  <Link
+                    href="/create-listing"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition"
+                  >
+                    Create Listing
+                  </Link>
+                  <Link
+                    href="/messages"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition"
+                  >
+                    Messages
+                  </Link>
+                  <div className="px-4 py-2 text-sm text-gray-600">
+                    {user.displayName || user.email}
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="mx-4 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-medium"
+                  >
+                    Logout
+                  </button>
+                </>
+              )}
+              {!user && (
+                <>
+                  <Link
+                    href="/login"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    href="/signup"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="mx-4 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-center transition font-medium"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

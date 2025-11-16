@@ -10,13 +10,21 @@ export default function Home({ user }) {
       <section className="gradient-bg py-20">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-4">
+              <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">
+                A Lake Forest College Initiative
+              </span>
+            </div>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               Welcome to{" "}
               <span className="gradient-text">ForesterSwap</span>
             </h1>
-            <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-              The sustainable marketplace for swapping, trading, and discovering unique items. 
-              Join our community and give your items a second life! 🌱
+            <p className="text-xl text-gray-700 mb-4 max-w-3xl mx-auto">
+              Lake Forest College's sustainable marketplace for swapping, trading, and discovering unique items. 
+              Join your fellow Foresters in reducing waste and building a circular economy on campus! 🌲
+            </p>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto font-medium">
+              Every swap is a step toward a more sustainable future. Together, we can make a difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               {user ? (
@@ -46,31 +54,34 @@ export default function Home({ user }) {
       {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
             Why Choose ForesterSwap?
           </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Lake Forest College is committed to sustainability. ForesterSwap empowers our community to reduce waste and promote conscious consumption.
+          </p>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="card text-center">
-              <div className="text-5xl mb-4">🌍</div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Sustainable</h3>
+              <div className="text-5xl mb-4">♻️</div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Reduce Waste</h3>
               <p className="text-gray-600">
-                Reduce waste and environmental impact by giving items a second life through swapping and trading.
+                Combat overconsumption and landfill waste by extending the lifecycle of items through swapping and reuse.
+              </p>
+            </div>
+
+            <div className="card text-center">
+              <div className="text-5xl mb-4">🌱</div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Campus Sustainability</h3>
+              <p className="text-gray-600">
+                Support Lake Forest College's sustainability goals by participating in our circular economy initiative.
               </p>
             </div>
 
             <div className="card text-center">
               <div className="text-5xl mb-4">🤝</div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Community</h3>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Forester Community</h3>
               <p className="text-gray-600">
-                Connect with like-minded individuals who value sustainability and smart exchanges.
-              </p>
-            </div>
-
-            <div className="card text-center">
-              <div className="text-5xl mb-4">✨</div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Easy to Use</h3>
-              <p className="text-gray-600">
-                List your items in minutes and start swapping with our intuitive, user-friendly platform.
+                Connect with fellow students, faculty, and staff who share your commitment to environmental responsibility.
               </p>
             </div>
           </div>
@@ -140,16 +151,16 @@ export default function Home({ user }) {
         <section className="py-20 bg-primary-600 text-white">
           <div className="container-custom text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Start Swapping?
+              Join the Lake Forest College Sustainability Movement
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Join thousands of users who are making a difference, one swap at a time.
+              Be part of the solution. Every item swapped is one less item in a landfill. Start making an impact today!
             </p>
             <Link
               href="/signup"
               className="inline-block px-8 py-4 bg-white text-primary-600 font-bold rounded-lg hover:bg-gray-100 transition text-lg"
             >
-              Sign Up Now - It's Free!
+              Sign Up with Your @lakeforest.edu Email
             </Link>
           </div>
         </section>
@@ -159,10 +170,10 @@ export default function Home({ user }) {
       <footer className="bg-gray-900 text-gray-400 py-8">
         <div className="container-custom text-center">
           <p className="mb-2">
-            &copy; 2025 ForesterSwap. Built for sustainability. 🌲
+            &copy; 2025 ForesterSwap - A Lake Forest College Sustainability Initiative 🌲
           </p>
           <p className="text-sm">
-            Made with 💚 for the environment
+            Made with ❤️ for our planet and community
           </p>
         </div>
       </footer>

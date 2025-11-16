@@ -2,14 +2,16 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
-import { collection, getDocs, query, orderBy, addDoc, where } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, addDoc, where, doc, updateDoc, increment, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 export default function Listings({ user, loading }) {
   const [listings, setListings] = useState([]);
   const [filteredListings, setFilteredListings] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [sortOrder, setSortOrder] = useState("smart"); // smart, newest, oldest
   const [loadingListings, setLoadingListings] = useState(true);
+  const [userPreferences, setUserPreferences] = useState({});
   const router = useRouter();
 
   const categoryOptions = [
@@ -45,20 +47,112 @@ export default function Listings({ user, loading }) {
     fetchListings();
   }, []);
 
+  // Load user preferences
   useEffect(() => {
-    if (selectedCategory === "all") {
-      setFilteredListings(listings);
-    } else {
-      setFilteredListings(
-        listings.filter((listing) =>
-          listing.categories?.includes(selectedCategory)
-        )
+    if (!user) return;
+    
+    async function loadUserPreferences() {
+      try {
+        const userDoc = await getDoc(doc(db, "Users", user.uid));
+        if (userDoc.exists()) {
+          setUserPreferences(userDoc.data().preferences || {});
+        }
+      } catch (error) {
+        console.error("Error loading preferences:", error);
+      }
+    }
+    
+    loadUserPreferences();
+  }, [user]);
+
+  useEffect(() => {
+    let filtered = listings;
+    
+    // Filter by category first
+    if (selectedCategory !== "all") {
+      filtered = listings.filter((listing) =>
+        listing.categories?.includes(selectedCategory)
       );
     }
-  }, [selectedCategory, listings]);
+    
+    // Then apply sorting
+    let sorted = [...filtered];
+    
+    if (sortOrder === "newest") {
+      sorted.sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""));
+    } else if (sortOrder === "oldest") {
+      sorted.sort((a, b) => (a.createdAt || "").localeCompare(b.createdAt || ""));
+    } else if (sortOrder === "smart" && user) {
+      // AI-like smart sorting based on user preferences
+      sorted = smartSortByPreferences(sorted);
+    } else {
+      // Default to newest if not logged in
+      sorted.sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""));
+    }
+    
+    setFilteredListings(sorted);
+  }, [sortOrder, selectedCategory, listings, userPreferences]);
+
+  // Smart sorting algorithm based on user preferences
+  function smartSortByPreferences(items) {
+    if (!user || Object.keys(userPreferences).length === 0) {
+      // If no preferences, just return newest first
+      return items.sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""));
+    }
+
+    return items.sort((a, b) => {
+      // Calculate preference score for each item
+      let scoreA = 0;
+      let scoreB = 0;
+
+      // Score based on category preferences
+      a.categories?.forEach(cat => {
+        scoreA += userPreferences[cat] || 0;
+      });
+      b.categories?.forEach(cat => {
+        scoreB += userPreferences[cat] || 0;
+      });
+
+      // If scores are equal, sort by newest
+      if (scoreB === scoreA) {
+        return (b.createdAt || "").localeCompare(a.createdAt || "");
+      }
+
+      return scoreB - scoreA;
+    });
+  }
+
+  // Track user clicking on a listing (preference tracking)
+  async function trackListingClick(listing) {
+    if (!user || !listing.categories) return;
+
+    try {
+      const userRef = doc(db, "Users", user.uid);
+      const updates = {};
+
+      // Increment preference count for each category
+      listing.categories.forEach(category => {
+        updates[`preferences.${category}`] = increment(1);
+      });
+
+      await updateDoc(userRef, updates);
+      
+      // Update local state
+      const newPrefs = { ...userPreferences };
+      listing.categories.forEach(category => {
+        newPrefs[category] = (newPrefs[category] || 0) + 1;
+      });
+      setUserPreferences(newPrefs);
+    } catch (error) {
+      console.error("Error tracking preference:", error);
+    }
+  }
 
   async function handleContactSeller(e, listing) {
     e.stopPropagation();
+    
+    // Track the click for preference learning
+    await trackListingClick(listing);
     
     if (!user) {
       router.push("/login");
@@ -143,8 +237,26 @@ export default function Listings({ user, loading }) {
           )}
         </div>
 
-        {/* Category Filter */}
+        {/* Category Filter and Sorting */}
         <div className="mb-8 bg-white rounded-xl shadow-md p-4">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+            <h3 className="font-semibold text-gray-700">Filter by Category:</h3>
+            <div className="flex items-center gap-2">
+              <label htmlFor="sortOrder" className="text-sm font-medium text-gray-700">
+                Sort by:
+              </label>
+              <select
+                id="sortOrder"
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+              >
+                <option value="smart">🤖 AI Recommended</option>
+                <option value="newest">📅 Newest First</option>
+                <option value="oldest">📅 Oldest First</option>
+              </select>
+            </div>
+          </div>
           <div className="flex flex-wrap gap-2">
             {categoryOptions.map((category) => (
               <button

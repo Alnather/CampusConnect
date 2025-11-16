@@ -96,6 +96,11 @@ export default function CreateListing({ user, loading }) {
       return;
     }
 
+    if (!imagePreview) {
+      setError("Please upload a photo of your item");
+      return;
+    }
+
     setSubmitting(true);
 
     try {
@@ -218,7 +223,7 @@ export default function CreateListing({ user, loading }) {
               {/* Image Upload */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Photo (Optional)
+                  Photo *
                 </label>
                 <div className="flex items-center space-x-4">
                   <label className="cursor-pointer">
@@ -227,6 +232,7 @@ export default function CreateListing({ user, loading }) {
                       accept="image/*"
                       onChange={handleImageChange}
                       className="hidden"
+                      required
                     />
                     <span className="btn-secondary inline-block">
                       Choose Image

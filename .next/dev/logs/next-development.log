@@ -48,3 +48,28 @@
 [00:29:12.997] Server  LOG      ✓ Compiled in 40ms
 [00:29:13.295] Browser LOG     Refreshing page data due to server-side change
 [00:29:52.575] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:36:47.859] Server  LOG      ✓ Compiled in 67ms
+[00:37:02.874] Server  LOG      ✓ Compiled in 30ms
+[00:37:17.077] Server  LOG      ✓ Compiled in 27ms
+[00:37:26.869] Server  LOG      ✓ Compiled in 28ms
+[00:37:33.851] Server  LOG      ✓ Compiled in 26ms
+[00:45:55.709] Server  LOG      ✓ Compiled in 81ms
+[00:45:56.990] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:46:03.962] Server  LOG      ✓ Compiled in 38ms
+[00:46:14.611] Server  LOG      ✓ Compiled in 42ms
+[00:46:25.788] Server  LOG      ✓ Compiled in 38ms
+[00:46:32.629] Server  LOG      ✓ Compiled in 27ms
+[00:46:33.297] Browser LOG     Refreshing page data due to server-side change
+[00:46:39.365] Server  LOG      ✓ Compiled in 19ms
+[00:46:48.863] Server  LOG      ✓ Compiled in 18ms
+[00:47:06.613] Server  LOG      ✓ Compiled in 34ms
+[00:47:07.297] Browser LOG     Refreshing page data due to server-side change
+[00:47:16.616] Server  LOG      ✓ Compiled in 20ms
+[00:47:29.639] Server  LOG      ✓ Compiled in 35ms
+[00:48:55.125] Server  LOG      ✓ Compiled in 31ms
+[00:49:04.812] Server  LOG      ✓ Compiled in 38ms
+[00:49:14.971] Server  LOG      ✓ Compiled in 45ms
+[00:49:56.609] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:50:39.057] Server  LOG      ✓ Compiled in 45ms
+[00:50:48.537] Server  LOG      ✓ Compiled in 64ms
+[00:51:03.621] Server  LOG      ✓ Compiled in 56ms

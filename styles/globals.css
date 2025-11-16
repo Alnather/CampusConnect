@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #f0fdf4;
-  --color-primary-100: #dcfce7;
-  --color-primary-200: #bbf7d0;
-  --color-primary-300: #86efac;
-  --color-primary-400: #4ade80;
-  --color-primary-500: #22c55e;
-  --color-primary-600: #16a34a;
-  --color-primary-700: #15803d;
-  --color-primary-800: #166534;
-  --color-primary-900: #14532d;
+  --color-primary-50: #fef2f2;
+  --color-primary-100: #fee2e2;
+  --color-primary-200: #fecaca;
+  --color-primary-300: #fca5a5;
+  --color-primary-400: #f87171;
+  --color-primary-500: #ef4444;
+  --color-primary-600: #dc2626;
+  --color-primary-700: #b91c1c;
+  --color-primary-800: #991b1b;
+  --color-primary-900: #7f1d1d;
 }
 
 html {
@@ -111,11 +111,11 @@ body {
 }
 
 .gradient-bg {
-  background: linear-gradient(to bottom right, var(--color-primary-50), rgb(240 253 244), rgb(236 253 245));
+  background: linear-gradient(to bottom right, var(--color-primary-50), rgb(254 242 242), rgb(254 226 226));
 }
 
 .gradient-text {
-  background: linear-gradient(to right, var(--color-primary-600), rgb(5 150 105));
+  background: linear-gradient(to right, var(--color-primary-600), rgb(185 28 28));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

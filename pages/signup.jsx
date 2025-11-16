@@ -50,6 +50,7 @@ export default function Signup() {
         firstName: firstName,
         lastName: lastName,
         products: [],
+        preferences: {}, // Initialize empty preferences object
       });
 
       // Redirect to homepage - user is now authenticated
