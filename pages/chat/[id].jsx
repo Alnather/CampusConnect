@@ -41,8 +41,7 @@ export default function Chat({ user, loading }) {
     // Listen to messages in real-time
     const q = query(
       collection(db, "messages"),
-      where("conversationId", "==", id),
-      orderBy("timestamp", "asc")
+      where("conversationId", "==", id)
     );
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -50,7 +49,17 @@ export default function Chat({ user, loading }) {
         id: doc.id,
         ...doc.data(),
       }));
+      
+      // Sort messages by timestamp
+      msgs.sort((a, b) => {
+        const aTime = a.timestamp || "";
+        const bTime = b.timestamp || "";
+        return aTime.localeCompare(bTime);
+      });
+      
       setMessages(msgs);
+    }, (error) => {
+      console.error("Error fetching messages:", error);
     });
 
     return () => unsubscribe();

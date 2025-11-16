@@ -749,7 +749,7 @@ function Chat({ user, loading }) {
             }
             fetchConversation();
             // Listen to messages in real-time
-            const q = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], "messages"), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])("conversationId", "==", id), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["orderBy"])("timestamp", "asc"));
+            const q = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], "messages"), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])("conversationId", "==", id));
             const unsubscribe = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(q, {
                 "Chat.useEffect.unsubscribe": (snapshot)=>{
                     const msgs = snapshot.docs.map({
@@ -758,7 +758,19 @@ function Chat({ user, loading }) {
                                 ...doc.data()
                             })
                     }["Chat.useEffect.unsubscribe.msgs"]);
+                    // Sort messages by timestamp
+                    msgs.sort({
+                        "Chat.useEffect.unsubscribe": (a, b)=>{
+                            const aTime = a.timestamp || "";
+                            const bTime = b.timestamp || "";
+                            return aTime.localeCompare(bTime);
+                        }
+                    }["Chat.useEffect.unsubscribe"]);
                     setMessages(msgs);
+                }
+            }["Chat.useEffect.unsubscribe"], {
+                "Chat.useEffect.unsubscribe": (error)=>{
+                    console.error("Error fetching messages:", error);
                 }
             }["Chat.useEffect.unsubscribe"]);
             return ({
@@ -803,7 +815,7 @@ function Chat({ user, loading }) {
                     user: user
                 }, void 0, false, {
                     fileName: "[project]/pages/chat/[id].jsx",
-                    lineNumber: 95,
+                    lineNumber: 104,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -813,18 +825,18 @@ function Chat({ user, loading }) {
                         children: "Loading..."
                     }, void 0, false, {
                         fileName: "[project]/pages/chat/[id].jsx",
-                        lineNumber: 97,
+                        lineNumber: 106,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/chat/[id].jsx",
-                    lineNumber: 96,
+                    lineNumber: 105,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/pages/chat/[id].jsx",
-            lineNumber: 94,
+            lineNumber: 103,
             columnNumber: 7
         }, this);
     }
@@ -840,7 +852,7 @@ function Chat({ user, loading }) {
                     user: user
                 }, void 0, false, {
                     fileName: "[project]/pages/chat/[id].jsx",
-                    lineNumber: 111,
+                    lineNumber: 120,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -850,18 +862,18 @@ function Chat({ user, loading }) {
                         children: "Loading conversation..."
                     }, void 0, false, {
                         fileName: "[project]/pages/chat/[id].jsx",
-                        lineNumber: 113,
+                        lineNumber: 122,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/chat/[id].jsx",
-                    lineNumber: 112,
+                    lineNumber: 121,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/pages/chat/[id].jsx",
-            lineNumber: 110,
+            lineNumber: 119,
             columnNumber: 7
         }, this);
     }
@@ -873,7 +885,7 @@ function Chat({ user, loading }) {
                 user: user
             }, void 0, false, {
                 fileName: "[project]/pages/chat/[id].jsx",
-                lineNumber: 125,
+                lineNumber: 134,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -890,7 +902,7 @@ function Chat({ user, loading }) {
                                     children: "← Back to Messages"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/chat/[id].jsx",
-                                    lineNumber: 131,
+                                    lineNumber: 140,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -898,7 +910,7 @@ function Chat({ user, loading }) {
                                     children: otherUserName
                                 }, void 0, false, {
                                     fileName: "[project]/pages/chat/[id].jsx",
-                                    lineNumber: 137,
+                                    lineNumber: 146,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -909,13 +921,13 @@ function Chat({ user, loading }) {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/chat/[id].jsx",
-                                    lineNumber: 140,
+                                    lineNumber: 149,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/chat/[id].jsx",
-                            lineNumber: 130,
+                            lineNumber: 139,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -927,12 +939,12 @@ function Chat({ user, loading }) {
                                         children: "No messages yet. Start the conversation!"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/chat/[id].jsx",
-                                        lineNumber: 149,
+                                        lineNumber: 158,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/pages/chat/[id].jsx",
-                                    lineNumber: 148,
+                                    lineNumber: 157,
                                     columnNumber: 15
                                 }, this) : messages.map((message)=>{
                                     const isOwnMessage = message.senderId === user.uid;
@@ -946,14 +958,14 @@ function Chat({ user, loading }) {
                                                     children: message.senderName
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/chat/[id].jsx",
-                                                    lineNumber: 166,
+                                                    lineNumber: 175,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     children: message.text
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/chat/[id].jsx",
-                                                    lineNumber: 169,
+                                                    lineNumber: 178,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -964,18 +976,18 @@ function Chat({ user, loading }) {
                                                     })
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/chat/[id].jsx",
-                                                    lineNumber: 170,
+                                                    lineNumber: 179,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/chat/[id].jsx",
-                                            lineNumber: 159,
+                                            lineNumber: 168,
                                             columnNumber: 21
                                         }, this)
                                     }, message.id, false, {
                                         fileName: "[project]/pages/chat/[id].jsx",
-                                        lineNumber: 155,
+                                        lineNumber: 164,
                                         columnNumber: 19
                                     }, this);
                                 }),
@@ -983,13 +995,13 @@ function Chat({ user, loading }) {
                                     ref: messagesEndRef
                                 }, void 0, false, {
                                     fileName: "[project]/pages/chat/[id].jsx",
-                                    lineNumber: 181,
+                                    lineNumber: 190,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/chat/[id].jsx",
-                            lineNumber: 146,
+                            lineNumber: 155,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -1007,7 +1019,7 @@ function Chat({ user, loading }) {
                                         disabled: sending
                                     }, void 0, false, {
                                         fileName: "[project]/pages/chat/[id].jsx",
-                                        lineNumber: 187,
+                                        lineNumber: 196,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1017,35 +1029,35 @@ function Chat({ user, loading }) {
                                         children: sending ? "Sending..." : "Send"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/chat/[id].jsx",
-                                        lineNumber: 195,
+                                        lineNumber: 204,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/chat/[id].jsx",
-                                lineNumber: 186,
+                                lineNumber: 195,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/chat/[id].jsx",
-                            lineNumber: 185,
+                            lineNumber: 194,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/chat/[id].jsx",
-                    lineNumber: 128,
+                    lineNumber: 137,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/chat/[id].jsx",
-                lineNumber: 127,
+                lineNumber: 136,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/chat/[id].jsx",
-        lineNumber: 124,
+        lineNumber: 133,
         columnNumber: 5
     }, this);
 }
