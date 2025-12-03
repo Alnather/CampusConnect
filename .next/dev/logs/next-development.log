@@ -1,140 +1,964 @@
-[00:00:01.110] Server  LOG      ✓ Ready in 829ms
-[00:01:32.077] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:08:24.406] Server  LOG      ✓ Compiled in 37ms
-[00:08:46.448] Server  LOG      ✓ Compiled in 56ms
-[00:08:54.746] Server  LOG      ✓ Compiled in 27ms
-[00:08:58.090] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:09:47.219] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
-[00:09:50.151] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
-[00:12:05.532] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:12:12.286] Browser ERROR   Error creating listing: {"code":"permission-denied","name":"FirebaseError"}
-[00:13:41.228] Server  LOG      ✓ Compiled in 30ms
-[00:13:48.698] Server  LOG      ✓ Compiled in 53ms
-[00:14:00.602] Server  LOG      ✓ Compiled in 38ms
-[00:14:06.152] Server  LOG      ✓ Compiled in 28ms
-[00:15:40.530] Server  LOG      ✓ Compiled in 21ms
-[00:15:49.674] Browser ERROR   Error creating listing: {"code":"permission-denied","name":"FirebaseError"}
-[00:16:08.344] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:17:21.237] Browser ERROR   Error creating listing: {"code":"invalid-argument","name":"FirebaseError"}
-[00:18:17.485] Server  LOG      ✓ Compiled in 30ms
-[00:18:20.606] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:19:24.860] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:20:24.691] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:20:37.159] Server  ERROR   C:\Users\Hani\ForesterSwap\node_modules\next\dist\server\dev\on-demand-entry-handler.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:20:37.167] Server  ERROR   C:\Users\Hani\ForesterSwap\node_modules\next\dist\server\dev\hot-reloader-turbopack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:20:37.172] Server  ERROR   C:\Users\Hani\ForesterSwap\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:20:37.175] Server  ERROR   C:\Users\Hani\ForesterSwap\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:20:37.175] Server  ERROR   C:\Users\Hani\ForesterSwap\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:20:37.179] Server  ERROR   PageNotFoundError: Cannot find module for page: /listing/b0oieDvSAh7LXoJVYFWe
-[00:21:38.731] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:21:52.091] Server  LOG      ✓ Compiled in 61ms
-[00:22:04.307] Server  ERROR   C:\Users\Hani\ForesterSwap\node_modules\next\dist\server\dev\on-demand-entry-handler.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:22:04.308] Server  ERROR   C:\Users\Hani\ForesterSwap\node_modules\next\dist\server\dev\hot-reloader-turbopack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:22:04.308] Server  ERROR   C:\Users\Hani\ForesterSwap\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:22:04.309] Server  ERROR   C:\Users\Hani\ForesterSwap\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:22:04.309] Server  ERROR   C:\Users\Hani\ForesterSwap\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:22:04.310] Server  ERROR   PageNotFoundError: Cannot find module for page: /listing/bpr74qFhHijyPuqMvTUK
-[00:22:04.831] Server  LOG      ✓ Compiled in 40ms
-[00:22:31.251] Server  LOG      ✓ Compiled in 23ms
-[00:22:32.298] Browser LOG     Refreshing page data due to server-side change
-[00:22:51.502] Server  LOG      ✓ Compiled in 20ms
-[00:23:21.637] Server  LOG      ✓ Compiled in 49ms
-[00:23:32.098] Server  LOG      ✓ Compiled in 19ms
-[00:24:56.793] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:24:59.808] Browser ERROR   [2025-11-16T19:47:25.610Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=failed-precondition]: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/forester-swap/firestore/indexes?create_composite=Ck5wcm9qZWN0cy9mb3Jlc3Rlci1zd2FwL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9tZXNzYWdlcy9pbmRleGVzL18QARoSCg5jb252ZXJzYXRpb25JZBABGg0KCXRpbWVzdGFtcBABGgwKCF9fbmFtZV9fEAE
-[00:25:41.683] Browser ERROR   [2025-11-16T19:48:07.494Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=failed-precondition]: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/forester-swap/firestore/indexes?create_composite=Ck5wcm9qZWN0cy9mb3Jlc3Rlci1zd2FwL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy9tZXNzYWdlcy9pbmRleGVzL18QARoSCg5jb252ZXJzYXRpb25JZBABGg0KCXRpbWVzdGFtcBABGgwKCF9fbmFtZV9fEAE
-[00:27:00.836] Server  LOG      ✓ Compiled in 25ms
-[00:27:10.564] Server  LOG      ✓ Compiled in 24ms
-[00:29:12.997] Server  LOG      ✓ Compiled in 40ms
-[00:29:13.295] Browser LOG     Refreshing page data due to server-side change
-[00:29:52.575] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:36:47.859] Server  LOG      ✓ Compiled in 67ms
-[00:37:02.874] Server  LOG      ✓ Compiled in 30ms
-[00:37:17.077] Server  LOG      ✓ Compiled in 27ms
-[00:37:26.869] Server  LOG      ✓ Compiled in 28ms
-[00:37:33.851] Server  LOG      ✓ Compiled in 26ms
-[00:45:55.709] Server  LOG      ✓ Compiled in 81ms
-[00:45:56.990] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:46:03.962] Server  LOG      ✓ Compiled in 38ms
-[00:46:14.611] Server  LOG      ✓ Compiled in 42ms
-[00:46:25.788] Server  LOG      ✓ Compiled in 38ms
-[00:46:32.629] Server  LOG      ✓ Compiled in 27ms
-[00:46:33.297] Browser LOG     Refreshing page data due to server-side change
-[00:46:39.365] Server  LOG      ✓ Compiled in 19ms
-[00:46:48.863] Server  LOG      ✓ Compiled in 18ms
-[00:47:06.613] Server  LOG      ✓ Compiled in 34ms
-[00:47:07.297] Browser LOG     Refreshing page data due to server-side change
-[00:47:16.616] Server  LOG      ✓ Compiled in 20ms
-[00:47:29.639] Server  LOG      ✓ Compiled in 35ms
-[00:48:55.125] Server  LOG      ✓ Compiled in 31ms
-[00:49:04.812] Server  LOG      ✓ Compiled in 38ms
-[00:49:14.971] Server  LOG      ✓ Compiled in 45ms
-[00:49:56.609] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:50:39.057] Server  LOG      ✓ Compiled in 45ms
-[00:50:48.537] Server  LOG      ✓ Compiled in 64ms
-[00:51:03.621] Server  LOG      ✓ Compiled in 56ms
-[00:56:15.600] Server  LOG      ✓ Compiled in 50ms
-[00:56:17.434] Server  LOG      ✓ Compiled in 39ms
-[00:56:19.607] Server  LOG      ✓ Compiled in 39ms
-[00:56:21.705] Server  LOG      ✓ Compiled in 77ms
-[00:56:23.690] Server  LOG      ✓ Compiled in 32ms
-[00:56:37.761] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:56:44.075] Server  LOG      ✓ Compiled in 115ms
-[00:56:46.059] Server  LOG      ✓ Compiled in 79ms
-[00:56:48.031] Server  LOG      ✓ Compiled in 52ms
-[00:56:52.111] Server  LOG      ✓ Compiled in 62ms
-[00:56:54.166] Server  LOG      ✓ Compiled in 50ms
-[00:57:07.826] Server  LOG      ✓ Compiled in 29ms
-[00:57:19.785] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:57:28.801] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:57:31.731] Server  LOG      ✓ Compiled in 17ms
-[00:57:32.707] Server  LOG      ✓ Compiled in 19ms
-[00:57:33.870] Server  LOG      ✓ Compiled in 18ms
-[00:57:34.514] Server  LOG      ✓ Compiled in 17ms
-[00:57:35.065] Server  LOG      ✓ Compiled in 18ms
-[00:57:40.089] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:57:58.528] Server  LOG      ✓ Compiled in 49ms
-[00:58:00.515] Server  LOG      ✓ Compiled in 28ms
-[00:58:02.583] Server  LOG      ✓ Compiled in 40ms
-[00:58:11.728] Server  LOG      ✓ Compiled in 48ms
-[00:58:21.147] Server  LOG      ✓ Compiled in 29ms
-[00:58:29.869] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:58:33.579] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:58:38.309] Server  LOG      ✓ Compiled in 50ms
-[00:58:39.089] Server  LOG      ✓ Compiled in 18ms
-[00:58:59.815] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:59:16.554] Server  LOG      ✓ Compiled in 38ms
-[00:59:24.713] Server  LOG      ✓ Compiled in 29ms
-[00:59:32.239] Server  LOG      ✓ Compiled in 37ms
-[00:59:42.883] Server  LOG      ✓ Compiled in 18ms
-[00:59:47.629] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:59:50.924] Server  LOG      ✓ Compiled in 26ms
-[01:00:00.478] Server  LOG      ✓ Compiled in 21ms
-[01:00:06.974] Server  LOG      ✓ Compiled in 20ms
-[01:00:19.249] Server  LOG      ✓ Compiled in 17ms
-[01:00:24.923] Server  LOG      ✓ Compiled in 25ms
-[01:00:35.213] Server  LOG      ✓ Compiled in 36ms
-[01:00:45.466] Server  LOG      ✓ Compiled in 27ms
-[01:00:53.698] Server  LOG      ✓ Compiled in 32ms
-[01:00:59.567] Server  LOG      ✓ Compiled in 55ms
-[01:01:05.671] Server  LOG      ✓ Compiled in 27ms
-[01:01:33.610] Server  LOG      ✓ Compiled in 18ms
-[01:01:41.846] Server  LOG      ✓ Compiled in 18ms
-[01:01:50.241] Server  LOG      ✓ Compiled in 19ms
-[01:02:02.760] Server  LOG      ✓ Compiled in 19ms
-[01:02:10.460] Server  LOG      ✓ Compiled in 21ms
-[01:02:25.649] Server  LOG      ✓ Compiled in 23ms
-[01:02:32.783] Server  LOG      ✓ Compiled in 27ms
-[01:10:39.451] Server  LOG      ✓ Compiled in 101ms
-[01:10:46.172] Server  LOG      ✓ Compiled in 32ms
-[01:11:06.759] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/swapbear1.png" "received" null
-[01:11:12.162] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/swapbear1.png" "received" null
-[01:11:12.226] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:11:12.348] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
-[01:11:17.924] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/swapbear1.png" "received" null
-[01:11:19.690] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/swapbear1.png" "received" null
-[01:13:09.578] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:13:15.465] Server  LOG      ✓ Compiled in 48ms
-[01:14:07.517] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:14:14.284] Server  LOG      ✓ Compiled in 59ms
-[01:18:06.064] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:00:01.730] Server  LOG      ✓ Ready in 1062ms
+[00:00:06.516] Browser ERROR   uncaughtError: Error: ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+
+
+[00:00:07.591] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:00:07.591] Browser ERROR   ./pages/index.jsx:26:9
+Parsing ecmascript source code failed
+  24 |   );
+  25 | }
+> 26 |         </div>
+     |         ^
+  27 |       </section>
+  28 |
+  29 |       {/* Features Section */}
+
+Expression expected
+[00:00:07.591] Browser ERROR   ./pages/index.jsx:26:10
+Parsing ecmascript source code failed
+  24 |   );
+  25 | }
+> 26 |         </div>
+     |          ^^^^^
+  27 |       </section>
+  28 |
+  29 |       {/* Features Section */}
+
+Unterminated regexp literal
+[00:00:07.591] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:00:07.591] Browser ERROR   ./pages/index.jsx:26:9
+Parsing ecmascript source code failed
+  24 |   );
+  25 | }
+> 26 |         </div>
+     |         ^
+  27 |       </section>
+  28 |
+  29 |       {/* Features Section */}
+
+Expression expected
+[00:00:07.591] Browser ERROR   ./pages/index.jsx:26:10
+Parsing ecmascript source code failed
+  24 |   );
+  25 | }
+> 26 |         </div>
+     |          ^^^^^
+  27 |       </section>
+  28 |
+  29 |       {/* Features Section */}
+
+Unterminated regexp literal
+[00:00:42.676] Server  LOG      ✓ Compiled in 75ms
+[00:00:43.591] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:00:59.762] Browser ERROR   uncaughtError: Error: ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+
+
+[00:00:59.977] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:00:59.977] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:00.600] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:00.600] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:09.151] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:09.602] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:11.511] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:11.511] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:12.796] Browser ERROR   uncaughtError: Error: ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+
+
+[00:01:13.033] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:13.093] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:13.093] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:25.538] Server  LOG      ✓ Compiled in 144ms
+[00:01:25.653] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:26.596] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:39.974] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:40.595] Browser ERROR   ./styles/globals.css:1149:8
+Parsing CSS source code failed
+  1147 |   }
+  1148 | }
+> 1149 | @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+       |        ^
+  1150 | * {
+  1151 |   box-sizing: border-box;
+  1152 |   margin: 0;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[00:01:42.009] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:01:42.011] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:01:45.470] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:01:47.392] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:02:07.983] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:43.123] Browser LOG     Logout clicked
+[00:03:44.480] Browser LOG     Logout clicked
+[00:03:48.199] Browser LOG     Logout clicked
+[00:03:48.573] Browser LOG     Logout clicked
+[00:03:49.348] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:51.639] Browser LOG     Create ride clicked
+[00:03:53.080] Server  LOG      ✓ Compiled in 230ms
+[00:04:36.930] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:04:39.581] Server  LOG      ✓ Compiled in 238ms
+[00:04:39.695] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:39.695] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:46.729] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:46.729] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:46.849] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:46.849] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:46.849] Browser ERROR   {"code":"MODULE_UNPARSABLE"}
+[00:04:46.849] Browser ERROR   unhandledRejection: Error: Could not parse module '[project]/pages/rides.jsx'
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:46.849] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:46.849] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:46.850] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:46.850] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:47.845] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:47.846] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:48.160] Browser ERROR   uncaughtError: Error: ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+
+[00:04:48.328] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:48.328] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:48.328] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:48.328] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:48.329] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:48.329] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:49.293] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:49.293] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:49.465] Browser ERROR   uncaughtError: Error: ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+
+[00:04:49.666] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:49.666] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:49.729] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:49.729] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:04:49.729] Browser ERROR   ./pages/rides.jsx:110:14
+Parsing ecmascript source code failed
+  108 |               onChange={(e) => setDestination(e.target.value)}
+  109 |               className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-dark-lighter rounded-xl text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+> 110 |             />
+      |              ^
+  111 |           </div>
+  112 |
+  113 |           {/* Date and Time Filters */}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+[00:04:49.729] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[00:05:01.449] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:05:01.471] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:05:25.718] Server  LOG      ✓ Compiled in 176ms
+[00:05:36.951] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <AppContainer>
+      <Container fn={function fn}>
+        <PagesDevOverlayBridge>
+          <PagesDevOverlayErrorBoundary>
+            <PathnameContextProviderAdapter router={{sdc:{},sbc:{}, ...}} isAutoExport={true}>
+              <App pageProps={{}} Component={function Rides} err={undefined} router={{sdc:{},sbc:{}, ...}}>
+                <div className="app-layout">
+                  <TopBar>
+                    <header
++                     className="fixed top-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-b border-white/10 ..."
+-                     className="fixed top-0 left-0 right-0 bg-dark-light border-b border-dark-lighter z-40"
+                    >
+                      <div
++                       className="flex justify-between items-center h-16 max-w-2xl mx-auto px-6"
+-                       className="flex justify-between items-center h-14 max-w-lg mx-auto px-4"
+                      >
+                        <h1
++                         className="text-2xl font-bold"
+-                         className="text-xl font-bold"
+                        >
+                          <span>
+                          <span
++                           className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+-                           className="text-primary"
+                          >
++                           Connect
+                        <motion.button whileTap={{scale:0.9}} onClick={function onClick} className="w-11 h-11 ...">
+                          <button
+                            onClick={function onClick}
++                           className="w-11 h-11 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border bo..."
+-                           className="w-10 h-10 rounded-full bg-dark-lighter border border-primary flex items-center ..."
+                            tabIndex={0}
+                            style={{}}
+                            ref={function useMotionRef.useCallback}
+                          >
+                  <main>
+                  <BottomNav>
+                    <nav
++                     className="fixed bottom-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-t border-white/..."
+-                     className="fixed bottom-0 left-0 right-0 bg-dark-light border-t border-dark-lighter z-50"
+                    >
+                      <div
++                       className="flex justify-around items-center h-20 max-w-2xl mx-auto px-6"
+-                       className="flex justify-around items-center h-16 max-w-lg mx-auto px-4"
+                      >
+                        <button onClick={function onClick} className="flex flex-...">
+                          <motion.div whileTap={{scale:0.9}} className="flex flex-...">
+                            <div
++                             className="flex flex-col items-center gap-1"
+-                             className="flex flex-col items-center"
+                              tabIndex={0}
+                              style={{}}
+                              ref={function useMotionRef.useCallback}
+                            >
+                              <FiShoppingBag size={26} className="transition...">
+                                <IconBase attr={{viewBox:"0...", ...}} size={26} className="transition...">
+                                  <svg
+                                    stroke="currentColor"
+                                    fill="none"
+                                    strokeWidth="2"
+                                    viewBox="0 0 24 24"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
++                                   className="transition-colors text-gray-500"
+-                                   className="transition-colors text-gray-400"
+                                    style={{color:undefined}}
++                                   height={26}
+-                                   height="24"
++                                   width={26}
+-                                   width="24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                              <span
++                               className="text-xs font-semibold text-gray-500"
+-                               className="text-xs mt-1 font-medium text-gray-400"
+                              >
++                               Marketplace
+                        <button onClick={function onClick} className="flex flex-...">
+                          <motion.div whileTap={{scale:0.9}} className="flex flex-...">
+                            <div
++                             className="flex flex-col items-center gap-1"
+-                             className="flex flex-col items-center"
+                              tabIndex={0}
+                              style={{}}
+                              ref={function useMotionRef.useCallback}
+                            >
+                              <FiUsers size={26} className="transition...">
+                                <IconBase attr={{viewBox:"0...", ...}} size={26} className="transition...">
+                                  <svg
+                                    stroke="currentColor"
+                                    fill="none"
+                                    strokeWidth="2"
+                                    viewBox="0 0 24 24"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
++                                   className="transition-colors text-primary drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]"
+-                                   className="transition-colors text-primary"
+                                    style={{color:undefined}}
++                                   height={26}
+-                                   height="24"
++                                   width={26}
+-                                   width="24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                              <span
++                               className="text-xs font-semibold text-white"
+-                               className="text-xs mt-1 font-medium text-primary"
+                              >
++                               Rides
+                          <motion.div layoutId="activeTab" className="absolute -..." transition={{type:"spring", ...}}>
+                            <MeasureLayout>
+                            <div
++                             className="absolute -top-0.5 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to..."
+-                             className="absolute -top-0.5 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-primary rou..."
+                              style={{}}
+                              ref={function useMotionRef.useCallback}
+                            >
+                        <button onClick={function onClick} className="flex flex-...">
+                          <motion.div whileTap={{scale:0.9}} className="flex flex-...">
+                            <div
++                             className="flex flex-col items-center gap-1"
+-                             className="flex flex-col items-center"
+                              tabIndex={0}
+                              style={{}}
+                              ref={function useMotionRef.useCallback}
+                            >
+                              <FiInfo size={26} className="transition...">
+                                <IconBase attr={{viewBox:"0...", ...}} size={26} className="transition...">
+                                  <svg
+                                    stroke="currentColor"
+                                    fill="none"
+                                    strokeWidth="2"
+                                    viewBox="0 0 24 24"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
++                                   className="transition-colors text-gray-500"
+-                                   className="transition-colors text-gray-400"
+                                    style={{color:undefined}}
++                                   height={26}
+-                                   height="24"
++                                   width={26}
+-                                   width="24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                              <span
++                               className="text-xs font-semibold text-gray-500"
+-                               className="text-xs mt-1 font-medium text-gray-400"
+                              >
++                               Campus
+              ...
+
+[00:05:40.469] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:06:06.216] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:06:17.043] Server  LOG      ✓ Compiled in 183ms
+[00:06:21.001] Browser LOG     Create ride clicked
+[00:06:41.082] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:07:28.748] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:08:30.015] Server  LOG      ✓ Compiled in 491ms
+[00:08:42.822] Server  LOG      ✓ Compiled in 146ms
+[00:09:03.141] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:09:09.851] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:10:20.004] Server  LOG      ✓ Compiled in 224ms
+[00:11:09.273] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:11:53.440] Server  LOG      ✓ Compiled in 108ms
+[00:12:05.442] Server  LOG      ✓ Compiled in 187ms
+[00:12:48.233] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:13:14.336] Server  LOG      ✓ Compiled in 134ms
+[00:13:57.662] Server  LOG      ✓ Compiled in 61ms
+[00:14:05.083] Server  LOG      ✓ Compiled in 58ms
+[00:14:08.921] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:16:35.001] Server  LOG      ✓ Compiled in 50ms
+[00:19:56.202] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:20:04.201] Server  LOG      ✓ Compiled in 354ms
+[00:21:10.806] Server  LOG      ✓ Compiled in 1520ms
+[00:21:11.882] Browser LOG     Refreshing page data due to server-side change
+[00:21:20.448] Server  LOG      ✓ Compiled in 163ms
+[00:21:21.623] Browser LOG     Refreshing page data due to server-side change
+[00:21:21.623] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[00:21:25.725] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__88b2ea17._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:21:25.731] Server  ERROR   ReferenceError: FiSearch is not defined
+[00:21:25.739] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__88b2ea17._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:21:25.741] Server  ERROR    ⨯ ReferenceError: FiSearch is not defined
+[00:21:25.746] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__88b2ea17._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:21:25.750] Server  ERROR    ⨯ ReferenceError: FiSearch is not defined
+[00:21:27.447] Browser ERROR   uncaughtError: ReferenceError: FiSearch is not defined
+[00:21:47.803] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:21:47.814] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:21:47.866] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:21:47.891] Server  LOG      ✓ Compiled in 70ms
+[00:21:48.182] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__88b2ea17._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:21:48.182] Server  ERROR   ReferenceError: FiSearch is not defined
+[00:21:48.185] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__88b2ea17._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:21:48.186] Server  ERROR    ⨯ ReferenceError: FiSearch is not defined
+[00:21:48.197] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__88b2ea17._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:21:48.199] Server  ERROR    ⨯ ReferenceError: FiSearch is not defined
+[00:21:50.165] Browser ERROR   uncaughtError: ReferenceError: FiSearch is not defined
+[00:21:58.232] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__88b2ea17._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:21:58.234] Server  ERROR   ReferenceError: FiSearch is not defined
+[00:21:58.237] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__88b2ea17._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:21:58.237] Server  ERROR    ⨯ ReferenceError: FiSearch is not defined
+[00:21:58.240] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__88b2ea17._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:21:58.242] Server  ERROR    ⨯ ReferenceError: FiSearch is not defined
+[00:21:59.814] Browser ERROR   uncaughtError: ReferenceError: FiSearch is not defined
+[00:22:25.180] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:22:25.189] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:22:25.300] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:22:29.310] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:22:32.177] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:22:35.135] Browser LOG     Create ride clicked
+[00:22:43.690] Server  LOG      ✓ Compiled in 231ms
+[00:22:56.529] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.

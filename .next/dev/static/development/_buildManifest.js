@@ -5,23 +5,20 @@ self.__BUILD_MANIFEST = {
   "/_error": [
     "static/chunks/pages/_error.js"
   ],
-  "/chat/[id]": [
-    "static/chunks/pages/chat/[id].js"
-  ],
-  "/create-listing": [
-    "static/chunks/pages/create-listing.js"
-  ],
-  "/listings": [
-    "static/chunks/pages/listings.js"
+  "/campus": [
+    "static/chunks/pages/campus.js"
   ],
   "/login": [
     "static/chunks/pages/login.js"
   ],
-  "/messages": [
-    "static/chunks/pages/messages.js"
+  "/marketplace": [
+    "static/chunks/pages/marketplace.js"
   ],
-  "/signup": [
-    "static/chunks/pages/signup.js"
+  "/profile": [
+    "static/chunks/pages/profile.js"
+  ],
+  "/rides": [
+    "static/chunks/pages/rides.js"
   ],
   "__rewrites": {
     "afterFiles": [],
@@ -36,11 +33,15 @@ self.__BUILD_MANIFEST = {
     "/api/auth/logout",
     "/api/auth/signup",
     "/auth-test",
+    "/campus",
     "/chat/[id]",
     "/create-listing",
     "/listings",
     "/login",
+    "/marketplace",
     "/messages",
+    "/profile",
+    "/rides",
     "/signup"
   ]
 };self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
