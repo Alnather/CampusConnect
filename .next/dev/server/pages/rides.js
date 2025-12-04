@@ -1,5 +1,5 @@
 var R=require("../chunks/ssr/[turbopack]_runtime.js")("server/pages/rides.js")
-R.c("server/chunks/ssr/node_modules_next_dist_e8aabdaf._.js")
+R.c("server/chunks/ssr/node_modules_next_7192f0c0._.js")
 R.c("server/chunks/ssr/node_modules_react-icons_md_index_mjs_acc3b0a3._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__5a3f0aa9._.js")
 R.c("server/chunks/ssr/node_modules_186c80ea._.js")

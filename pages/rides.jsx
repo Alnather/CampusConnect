@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { FiPlus, FiMapPin, FiCalendar, FiClock, FiUsers, FiChevronRight, FiArrowRight } from 'react-icons/fi';
 import { MdFlight, MdShoppingCart, MdLocationCity, MdArrowRightAlt } from 'react-icons/md';
@@ -115,7 +116,13 @@ export default function Rides() {
   };
 
   return (
-    <div ref={containerRef} className="w-full pb-32">
+    <>
+      <Head>
+        <meta name="theme-color" content="#0A0A0A" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      </Head>
+      <div ref={containerRef} className="w-full pb-32">
       {/* Filters Section - Uber Style */}
       <div className="sticky top-0 z-30 backdrop-blur-2xl border-b border-white/5 pb-8">
         <div className="max-w-2xl mx-auto px-6 pt-8">
@@ -204,7 +211,7 @@ export default function Rides() {
                     <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                     
                     {/* Card */}
-                    <div className="relative bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 overflow-visible shadow-2xl group-hover:border-white/20 transition-all duration-300 flex flex-col" style={{ height: '20vh' }}>
+                    <div className="relative bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 overflow-visible shadow-2xl group-hover:border-white/20 transition-all duration-300 flex flex-col" style={{ height: '18vh' }}>
                       {/* Gradient Background */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} opacity-50 rounded-3xl`} />
                       
@@ -280,10 +287,10 @@ export default function Rides() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={handleCreateRide}
-        className="fixed bottom-28 right-6 w-20 h-20 bg-gradient-to-r from-primary via-accent to-primary rounded-full shadow-2xl shadow-primary/50 flex items-center justify-center z-50 border-2 border-white/20 backdrop-blur-xl"
+        className="fixed bottom-28 right-6 w-16 h-16 bg-gradient-to-r from-primary via-accent to-primary rounded-full shadow-2xl shadow-primary/50 flex items-center justify-center z-50 border-2 border-white/20 backdrop-blur-xl"
         style={{ backgroundSize: '200% 200%', animation: 'gradient 3s ease infinite' }}
       >
-        <FiPlus size={36} className="text-white" strokeWidth={3} />
+        <FiPlus size={16} className="text-white" strokeWidth={3} />
       </motion.button>
 
       <style jsx>{`
@@ -293,6 +300,7 @@ export default function Rides() {
           100% { background-position: 0% 50%; }
         }
       `}</style>
-    </div>
+      </div>
+    </>
   );
 }

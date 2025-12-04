@@ -81,7 +81,7 @@ export default function RideDetail() {
   };
 
   return (
-    <div className="pb-32">
+    <div className="pb-32 min-h-screen">
       {/* Header with Back Button */}
       <div className="backdrop-blur-2xl " style={{marginTop:"2vh",marginBottom:"2vh"}}>
         <div className="max-w-2xl mx-auto px-6 py-4 flex items-center gap-6">

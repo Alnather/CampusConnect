@@ -78,10 +78,10 @@ globalThis.__BUILD_MANIFEST = {
     ],
     "/rides": [
       "static/chunks/node_modules_next_dist_compiled_48866e82._.js",
-      "static/chunks/node_modules_next_dist_shared_lib_82dc2e9d._.js",
+      "static/chunks/node_modules_next_dist_shared_lib_cf5b50a6._.js",
       "static/chunks/node_modules_next_dist_client_d0aa886c._.js",
       "static/chunks/node_modules_next_dist_6024eba3._.js",
-      "static/chunks/node_modules_next_router_104fab1c.js",
+      "static/chunks/node_modules_next_c7385ca9._.js",
       "static/chunks/node_modules_react-dom_4411d9bd._.js",
       "static/chunks/node_modules_motion-dom_dist_es_16ec27b0._.js",
       "static/chunks/node_modules_framer-motion_dist_es_3c710854._.js",
@@ -92,7 +92,7 @@ globalThis.__BUILD_MANIFEST = {
       "static/chunks/[root-of-the-server]__cfac5b51._.js",
       "static/chunks/node_modules_react-datepicker_dist_react-datepicker_7a114146.css",
       "static/chunks/pages_rides_2da965e7._.js",
-      "static/chunks/turbopack-pages_rides_2c8cc138._.js"
+      "static/chunks/turbopack-pages_rides_8de35559._.js"
     ]
   },
   "devFiles": [],
