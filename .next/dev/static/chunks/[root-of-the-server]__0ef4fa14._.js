@@ -1096,12 +1096,11 @@ function RideDetail() {
                                     scale: 0.98
                                 },
                                 onClick: handleRequestJoin,
-                                className: "py-4 rounded-full  from-primary to-accent text-white font-bold hover:shadow-lg hover:shadow-primary/50 transition-all flex items-center justify-center gap-2",
+                                className: "py-4 rounded-full  from-primary to-accent text-white font-bold hover:bg-white/5 transition-all flex items-center justify-center gap-2",
                                 children: [
                                     "Request to Join",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["MdArrowRightAlt"], {
-                                        size: 32,
-                                        strokeWidth: 2
+                                        size: 32
                                     }, void 0, false, {
                                         fileName: "[project]/pages/ride/[id].jsx",
                                         lineNumber: 251,

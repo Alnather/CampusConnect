@@ -229,11 +229,12 @@ export default function TopBar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-b border-white/10 z-40 px-5" style={{paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "env(safe-area-inset-top)"}}>
-      <div className="flex justify-between items-center h-16 max-w-2xl mx-auto">
+    <header className="fixed top-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-b border-white/10 z-40" style={{paddingTop: "env(safe-area-inset-top)"}}>
+      <div className="flex justify-center">
+        <div className="flex justify-between items-center h-16 w-full max-w-2xl px-6">
         <h1 className="text-2xl font-bold">
           {/* <span className="text-white">Campus</span> */}    
-          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Connect</span>
+          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Forester</span>
         </h1>
         
         {/* Color Palette Selector */}
@@ -256,6 +257,7 @@ export default function TopBar() {
         >
           <FiUser size={20} className="text-primary" />
         </motion.button>
+        </div>
       </div>
     </header>
   );

@@ -260,69 +260,74 @@ function TopBar() {
     `;
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("header", {
-        className: "fixed top-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-b border-white/10 z-40 px-5",
+        className: "fixed top-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-b border-white/10 z-40",
         style: {
-            paddingLeft: "2vw",
-            paddingRight: "2vw",
             paddingTop: "env(safe-area-inset-top)"
         },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-            className: "flex justify-between items-center h-16 max-w-2xl mx-auto",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
-                    className: "text-2xl font-bold",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
-                        className: "bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent",
-                        children: "Connect"
-                    }, void 0, false, {
-                        fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 236,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/components/TopBar.jsx",
-                    lineNumber: 234,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("select", {
-                    value: selectedPalette,
-                    onChange: handlePaletteChange,
-                    className: "px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white text-sm font-medium hover:bg-white/10 focus:outline-none focus:border-primary/50 transition-all cursor-pointer",
-                    children: Object.keys(colorPalettes).map((name)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("option", {
-                            value: name,
-                            className: "bg-[#171717] text-white",
-                            children: name
-                        }, name, false, {
+            className: "flex justify-center",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                className: "flex justify-between items-center h-16 w-full max-w-2xl px-6",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
+                        className: "text-2xl font-bold",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                            className: "bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent",
+                            children: "Forester"
+                        }, void 0, false, {
                             fileName: "[project]/components/TopBar.jsx",
-                            lineNumber: 246,
-                            columnNumber: 13
-                        }, this))
-                }, void 0, false, {
-                    fileName: "[project]/components/TopBar.jsx",
-                    lineNumber: 240,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
-                    whileTap: {
-                        scale: 0.9
-                    },
-                    onClick: ()=>router.push('/profile'),
-                    className: "w-11 h-11 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 flex items-center justify-center hover:border-primary transition-all",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiUser"], {
-                        size: 20,
-                        className: "text-primary"
+                            lineNumber: 237,
+                            columnNumber: 11
+                        }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 257,
-                        columnNumber: 11
+                        lineNumber: 235,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("select", {
+                        value: selectedPalette,
+                        onChange: handlePaletteChange,
+                        className: "px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white text-sm font-medium hover:bg-white/10 focus:outline-none focus:border-primary/50 transition-all cursor-pointer",
+                        children: Object.keys(colorPalettes).map((name)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("option", {
+                                value: name,
+                                className: "bg-[#171717] text-white",
+                                children: name
+                            }, name, false, {
+                                fileName: "[project]/components/TopBar.jsx",
+                                lineNumber: 247,
+                                columnNumber: 13
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "[project]/components/TopBar.jsx",
+                        lineNumber: 241,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
+                        whileTap: {
+                            scale: 0.9
+                        },
+                        onClick: ()=>router.push('/profile'),
+                        className: "w-11 h-11 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 flex items-center justify-center hover:border-primary transition-all",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiUser"], {
+                            size: 20,
+                            className: "text-primary"
+                        }, void 0, false, {
+                            fileName: "[project]/components/TopBar.jsx",
+                            lineNumber: 258,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/components/TopBar.jsx",
+                        lineNumber: 253,
+                        columnNumber: 9
                     }, this)
-                }, void 0, false, {
-                    fileName: "[project]/components/TopBar.jsx",
-                    lineNumber: 252,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/TopBar.jsx",
+                lineNumber: 234,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
             fileName: "[project]/components/TopBar.jsx",
             lineNumber: 233,
             columnNumber: 7
@@ -386,58 +391,65 @@ function BottomNav() {
             paddingBottom: "env(safe-area-inset-bottom)"
         },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-            className: "flex justify-around items-center h-20 max-w-2xl mx-auto px-6",
-            children: navItems.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                    onClick: ()=>router.push(item.path),
-                    className: "flex flex-col items-center justify-center flex-1 relative",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
-                            whileTap: {
-                                scale: 0.9
-                            },
-                            className: "flex flex-col items-center gap-1",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(item.icon, {
-                                    size: 26,
-                                    className: `transition-colors ${isActive(item.path) ? 'text-primary drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'text-gray-500'}`
-                                }, void 0, false, {
-                                    fileName: "[project]/components/BottomNav.jsx",
-                                    lineNumber: 30,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
-                                    className: `text-xs font-semibold ${isActive(item.path) ? 'text-white' : 'text-gray-500'}`,
-                                    children: item.label
-                                }, void 0, false, {
-                                    fileName: "[project]/components/BottomNav.jsx",
-                                    lineNumber: 38,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/components/BottomNav.jsx",
-                            lineNumber: 26,
-                            columnNumber: 13
-                        }, this),
-                        isActive(item.path) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
-                            layoutId: "activeTab",
-                            className: "absolute -top-0.5 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-b-full shadow-lg shadow-primary/50",
-                            transition: {
-                                type: 'spring',
-                                stiffness: 500,
-                                damping: 30
-                            }
-                        }, void 0, false, {
-                            fileName: "[project]/components/BottomNav.jsx",
-                            lineNumber: 49,
-                            columnNumber: 15
-                        }, this)
-                    ]
-                }, item.id, true, {
-                    fileName: "[project]/components/BottomNav.jsx",
-                    lineNumber: 21,
-                    columnNumber: 11
-                }, this))
+            className: "flex justify-center",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                className: "flex justify-around items-center h-20 w-full max-w-2xl px-6",
+                children: navItems.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                        onClick: ()=>router.push(item.path),
+                        className: "flex flex-col items-center justify-center flex-1 relative",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
+                                whileTap: {
+                                    scale: 0.9
+                                },
+                                className: "flex flex-col items-center gap-1",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(item.icon, {
+                                        size: 26,
+                                        className: `transition-colors ${isActive(item.path) ? 'text-primary drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'text-gray-500'}`
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/BottomNav.jsx",
+                                        lineNumber: 31,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                        className: `text-xs font-semibold ${isActive(item.path) ? 'text-white' : 'text-gray-500'}`,
+                                        children: item.label
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/BottomNav.jsx",
+                                        lineNumber: 39,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/BottomNav.jsx",
+                                lineNumber: 27,
+                                columnNumber: 13
+                            }, this),
+                            isActive(item.path) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
+                                layoutId: "activeTab",
+                                className: "absolute -top-0.5 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-b-full shadow-lg shadow-primary/50",
+                                transition: {
+                                    type: 'spring',
+                                    stiffness: 500,
+                                    damping: 30
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/components/BottomNav.jsx",
+                                lineNumber: 50,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, item.id, true, {
+                        fileName: "[project]/components/BottomNav.jsx",
+                        lineNumber: 22,
+                        columnNumber: 11
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/components/BottomNav.jsx",
+                lineNumber: 20,
+                columnNumber: 9
+            }, this)
         }, void 0, false, {
             fileName: "[project]/components/BottomNav.jsx",
             lineNumber: 19,
@@ -509,16 +521,21 @@ function App({ Component, pageProps }) {
                 columnNumber: 19
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("main", {
-                className: "flex-1 w-full",
+                className: "flex-1 w-full flex justify-center",
                 style: {
-                    marginTop: showNav ? '74px' : '0',
-                    paddingLeft: '5vw',
-                    paddingRight: '5vw'
+                    marginTop: showNav ? '74px' : '0'
                 },
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(Component, {
-                    ...pageProps,
-                    user: user,
-                    loading: loading
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                    className: "w-full max-w-2xl px-6",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(Component, {
+                        ...pageProps,
+                        user: user,
+                        loading: loading
+                    }, void 0, false, {
+                        fileName: "[project]/pages/_app.jsx",
+                        lineNumber: 32,
+                        columnNumber: 11
+                    }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/_app.jsx",
                     lineNumber: 31,
@@ -531,7 +548,7 @@ function App({ Component, pageProps }) {
             }, this),
             showNav && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/pages/_app.jsx",
-                lineNumber: 33,
+                lineNumber: 35,
                 columnNumber: 19
             }, this)
         ]

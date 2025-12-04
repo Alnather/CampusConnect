@@ -16,7 +16,8 @@ export default function BottomNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-t border-white/10 z-50" style={{paddingBottom: "env(safe-area-inset-bottom)"}}>
-      <div className="flex justify-around items-center h-20 max-w-2xl mx-auto px-6">
+      <div className="flex justify-center">
+        <div className="flex justify-around items-center h-20 w-full max-w-2xl px-6">
         {navItems.map((item) => (
           <button
             key={item.id}
@@ -54,6 +55,7 @@ export default function BottomNav() {
             )}
           </button>
         ))}
+        </div>
       </div>
     </nav>
   );

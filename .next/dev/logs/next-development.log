@@ -525,3 +525,17 @@ Import trace:
 [06:49:39.006] Server  LOG      ✓ Compiled in 45ms
 [06:50:06.975] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
 [06:50:57.313] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[06:51:55.240] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[06:52:39.847] Server  LOG      ✓ Compiled in 115ms
+[06:53:12.767] Server  LOG      ✓ Compiled in 231ms
+[06:53:19.173] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[06:53:43.681] Server  LOG      ✓ Compiled in 45ms
+[06:53:45.343] Server  LOG      ✓ Compiled in 40ms
+[06:53:58.057] Server  LOG      ✓ Compiled in 45ms
+[06:54:06.539] Server  LOG      ✓ Compiled in 38ms
+[06:54:17.633] Browser LOG     Join request for ride: 1
+[06:54:19.219] Browser ERROR   Error fetching conversation: {"code":"permission-denied","name":"FirebaseError"}
+[06:54:55.327] Server  LOG      ✓ Compiled in 62ms
+[06:59:15.131] Server  LOG      ✓ Compiled in 80ms
+[06:59:19.838] Server  LOG      ✓ Compiled in 43ms
+[07:36:33.368] Server  LOG      ✓ Compiled in 39ms

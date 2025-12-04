@@ -57,6 +57,39 @@
       "static/chunks/pages_campus_2da965e7._.js",
       "static/chunks/turbopack-pages_campus_134d12e4._.js"
     ],
+    "/chat/[id]": [
+      "static/chunks/node_modules_next_dist_compiled_ad506013._.js",
+      "static/chunks/node_modules_next_dist_shared_lib_fe7e72ad._.js",
+      "static/chunks/node_modules_next_dist_client_9b1b49db._.js",
+      "static/chunks/node_modules_next_dist_6024eba3._.js",
+      "static/chunks/node_modules_next_75d914f1._.js",
+      "static/chunks/node_modules_react-dom_4411d9bd._.js",
+      "static/chunks/node_modules_@firebase_auth_dist_esm_40b5261f._.js",
+      "static/chunks/node_modules_@firebase_firestore_dist_index_esm_a1d87665.js",
+      "static/chunks/node_modules_fcc89ab0._.js",
+      "static/chunks/[root-of-the-server]__28c2dc2a._.js",
+      "static/chunks/pages_chat_[id]_jsx_2da965e7._.js",
+      "static/chunks/turbopack-pages_chat_[id]_jsx_88f08dc0._.js"
+    ],
+    "/create-ride": [
+      "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",
+      "static/chunks/node_modules_next_dist_shared_lib_cf5b50a6._.js",
+      "static/chunks/node_modules_next_dist_client_d0aa886c._.js",
+      "static/chunks/node_modules_next_dist_6024eba3._.js",
+      "static/chunks/node_modules_next_c7385ca9._.js",
+      "static/chunks/node_modules_react-dom_4411d9bd._.js",
+      "static/chunks/node_modules_motion-dom_dist_es_01ad550f._.js",
+      "static/chunks/node_modules_framer-motion_dist_es_c152664b._.js",
+      "static/chunks/node_modules_react-icons_4baf5626._.js",
+      "static/chunks/node_modules_date-fns_6c1479f4._.js",
+      "static/chunks/node_modules_@floating-ui_react_dist_ca3caa08._.js",
+      "static/chunks/node_modules_react-datepicker_dist_index_es_0a0b086b.js",
+      "static/chunks/node_modules_5f91000f._.js",
+      "static/chunks/[root-of-the-server]__84bc67f7._.js",
+      "static/chunks/node_modules_react-datepicker_dist_react-datepicker_7a114146.css",
+      "static/chunks/pages_create-ride_2da965e7._.js",
+      "static/chunks/turbopack-pages_create-ride_facb3ff2._.js"
+    ],
     "/marketplace": [
       "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",
       "static/chunks/node_modules_next_dist_shared_lib_82dc2e9d._.js",
@@ -70,6 +103,20 @@
       "static/chunks/[root-of-the-server]__891faa5e._.js",
       "static/chunks/pages_marketplace_2da965e7._.js",
       "static/chunks/turbopack-pages_marketplace_4e1913e6._.js"
+    ],
+    "/profile": [
+      "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",
+      "static/chunks/node_modules_next_dist_shared_lib_82dc2e9d._.js",
+      "static/chunks/node_modules_next_dist_client_d0aa886c._.js",
+      "static/chunks/node_modules_next_dist_6024eba3._.js",
+      "static/chunks/node_modules_react-dom_4411d9bd._.js",
+      "static/chunks/node_modules_motion-dom_dist_es_01ad550f._.js",
+      "static/chunks/node_modules_framer-motion_dist_es_c152664b._.js",
+      "static/chunks/node_modules_react-icons_0029b231._.js",
+      "static/chunks/node_modules_63a4c1ae._.js",
+      "static/chunks/[root-of-the-server]__11ef6bcb._.js",
+      "static/chunks/pages_profile_2da965e7._.js",
+      "static/chunks/turbopack-pages_profile_693f7162._.js"
     ],
     "/ride/[id]": [
       "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",

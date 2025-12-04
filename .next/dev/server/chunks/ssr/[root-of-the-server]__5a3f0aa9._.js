@@ -128,7 +128,7 @@ function Rides() {
     ]);
     const handleCreateRide = ()=>{
         // Navigate to create ride page
-        console.log('Create ride clicked');
+        router.push('/create-ride');
     };
     const handleJoinRide = (rideId)=>{
         // Handle join ride logic
@@ -633,7 +633,7 @@ function Rides() {
                         whileTap: {
                             scale: 0.9
                         },
-                        onClick: handleCreateRide,
+                        // onClick={handleCreateRide}
                         className: "fixed bottom-28 right-6 w-16 h-16 bg-gradient-to-r from-primary via-accent to-primary rounded-full shadow-2xl shadow-primary/50 flex items-center justify-center z-50 border-2 border-white/20 backdrop-blur-xl",
                         style: {
                             backgroundSize: '200% 200%',

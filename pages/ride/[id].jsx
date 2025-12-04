@@ -245,10 +245,10 @@ export default function RideDetail() {
             whileHover={{ scale: 1.02, x: 2 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleRequestJoin}
-            className="py-4 rounded-full  from-primary to-accent text-white font-bold hover:shadow-lg hover:shadow-primary/50 transition-all flex items-center justify-center gap-2"
+            className="py-4 rounded-full  from-primary to-accent text-white font-bold hover:bg-white/5 transition-all flex items-center justify-center gap-2"
           >
             Request to Join
-            <MdArrowRightAlt size={32} strokeWidth={2} />
+            <MdArrowRightAlt size={32} />
           </motion.button>
         </motion.div>
       </div>
