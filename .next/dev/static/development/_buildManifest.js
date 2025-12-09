@@ -2,17 +2,11 @@ self.__BUILD_MANIFEST = {
   "/": [
     "static/chunks/pages/index.js"
   ],
-  "/auth/action": [
-    "static/chunks/pages/auth/action.js"
-  ],
   "/campus": [
     "static/chunks/pages/campus.js"
   ],
   "/create-ride": [
     "static/chunks/pages/create-ride.js"
-  ],
-  "/edit-ride/[id]": [
-    "static/chunks/pages/edit-ride/[id].js"
   ],
   "/login": [
     "static/chunks/pages/login.js"
@@ -25,12 +19,6 @@ self.__BUILD_MANIFEST = {
   ],
   "/my-rides": [
     "static/chunks/pages/my-rides.js"
-  ],
-  "/profile": [
-    "static/chunks/pages/profile.js"
-  ],
-  "/ride/[id]": [
-    "static/chunks/pages/ride/[id].js"
   ],
   "/rides": [
     "static/chunks/pages/rides.js"

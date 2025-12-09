@@ -100,14 +100,13 @@ var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
 ;
 ;
 const firebaseConfig = {
-    apiKey: "AIzaSyDiNCO2trc8GFQouKD9B2peUM3Gg5InBhI",
-    authDomain: "forester-swap.firebaseapp.com",
-    databaseURL: "https://forester-swap-default-rtdb.firebaseio.com",
-    projectId: "forester-swap",
-    storageBucket: "forester-swap.firebasestorage.app",
-    messagingSenderId: "386036888086",
-    appId: "1:386036888086:web:db1e00c63ad4457c70bb37",
-    measurementId: "G-XGCCTCXV21"
+    apiKey: "AIzaSyAl56SCv-uBfILQGfdMkaJzs0IDwGOBUvA",
+    authDomain: "lfcboomer.firebaseapp.com",
+    projectId: "lfcboomer",
+    storageBucket: "lfcboomer.firebasestorage.app",
+    messagingSenderId: "579328875040",
+    appId: "1:579328875040:web:de58e2a358891dba5bfa45",
+    measurementId: "G-51G7NE56NH"
 };
 // where do i get the config values? from firebase console -> project settings -> general -> your apps -> firebase sdk snippet -> config
 const app = !(0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$app__$5b$external$5d$__$28$firebase$2f$app$2c$__esm_import$29$__["getApps"])().length ? (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$app__$5b$external$5d$__$28$firebase$2f$app$2c$__esm_import$29$__["initializeApp"])(firebaseConfig) : (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$app__$5b$external$5d$__$28$firebase$2f$app$2c$__esm_import$29$__["getApps"])()[0];
@@ -432,14 +431,14 @@ function TopBar({ user, isAuthPage }) {
     `;
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("header", {
-        className: "fixed top-0 left-0 right-0 bg-[#0A0A0A]/95 backdrop-blur-lg border-b border-white/10 z-40",
+        className: "fixed top-0 left-0 right-0 bg-[#0A0A0A]/95 backdrop-blur-lg border-b border-white/10 z-40 group",
         style: {
             paddingTop: "env(safe-area-inset-top)"
         },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
             className: "flex justify-center",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "flex items-center h-16 w-full max-w-7xl justify-between group",
+                className: "flex items-center h-16 w-full max-w-7xl justify-between",
                 style: {
                     paddingLeft: isMobile ? '2.5vw' : '0',
                     paddingRight: isMobile ? '2.5vw' : '0'

@@ -1110,79 +1110,62 @@ function Messages() {
                                     className: "flex-none border-b border-white/10 p-4 bg-[#0A0A0A]/95 backdrop-blur-lg bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 ",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                         className: "flex items-center justify-between",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                className: "flex items-center gap-3",
-                                                children: [
-                                                    (()=>{
-                                                        const theme = destinationThemes[selectedThread.themeKey];
-                                                        const Icon = theme.icon;
-                                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                            className: `w-10 h-10 rounded-full bg-gradient-to-br ${theme.bg} flex items-center justify-center`,
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(Icon, {
-                                                                className: theme.color,
-                                                                size: 20
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/pages/messages.jsx",
-                                                                lineNumber: 897,
-                                                                columnNumber: 27
-                                                            }, this)
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center gap-3",
+                                            children: [
+                                                (()=>{
+                                                    const theme = destinationThemes[selectedThread.themeKey];
+                                                    const Icon = theme.icon;
+                                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                        className: `w-10 h-10 rounded-full bg-gradient-to-br ${theme.bg} flex items-center justify-center`,
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(Icon, {
+                                                            className: theme.color,
+                                                            size: 20
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 896,
-                                                            columnNumber: 25
-                                                        }, this);
-                                                    })(),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
-                                                                className: "text-lg font-bold text-white",
-                                                                children: selectedThread.title
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/pages/messages.jsx",
-                                                                lineNumber: 902,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                                                className: "text-xs text-gray-400",
-                                                                children: [
-                                                                    selectedThread.participantCount,
-                                                                    " participants"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/pages/messages.jsx",
-                                                                lineNumber: 903,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
+                                                            lineNumber: 897,
+                                                            columnNumber: 27
+                                                        }, this)
+                                                    }, void 0, false, {
                                                         fileName: "[project]/pages/messages.jsx",
-                                                        lineNumber: 901,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/pages/messages.jsx",
-                                                lineNumber: 891,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                                                className: "p-2 hover:bg-white/5 rounded-full transition-all",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiMoreVertical"], {
-                                                    className: "text-gray-400",
-                                                    size: 20
-                                                }, void 0, false, {
+                                                        lineNumber: 896,
+                                                        columnNumber: 25
+                                                    }, this);
+                                                })(),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
+                                                            className: "text-lg font-bold text-white",
+                                                            children: selectedThread.title
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/pages/messages.jsx",
+                                                            lineNumber: 902,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                                            className: "text-xs text-gray-400",
+                                                            children: [
+                                                                selectedThread.participantCount,
+                                                                " participants"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/pages/messages.jsx",
+                                                            lineNumber: 903,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/pages/messages.jsx",
-                                                    lineNumber: 907,
+                                                    lineNumber: 901,
                                                     columnNumber: 21
                                                 }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/pages/messages.jsx",
-                                                lineNumber: 906,
-                                                columnNumber: 19
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/pages/messages.jsx",
+                                            lineNumber: 891,
+                                            columnNumber: 19
+                                        }, this)
+                                    }, void 0, false, {
                                         fileName: "[project]/pages/messages.jsx",
                                         lineNumber: 890,
                                         columnNumber: 17

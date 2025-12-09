@@ -903,9 +903,9 @@ export default function Messages() {
                       <p className="text-xs text-gray-400">{selectedThread.participantCount} participants</p>
                     </div>
                   </div>
-                  <button className="p-2 hover:bg-white/5 rounded-full transition-all">
+                  {/* <button className="p-2 hover:bg-white/5 rounded-full transition-all">
                     <FiMoreVertical className="text-gray-400" size={20} />
-                  </button>
+                  </button> */}
                 </div>
               </div>
 
