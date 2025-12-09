@@ -38,9 +38,18 @@ function Login() {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     // Redirect if already logged in
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
-        const unsubscribe = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"], (currentUser)=>{
+        const unsubscribe = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"], async (currentUser)=>{
             if (currentUser) {
-                router.push('/');
+                // Reload to get latest verification status
+                await currentUser.reload();
+                const refreshedUser = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"].currentUser;
+                if (refreshedUser?.emailVerified) {
+                    // Email verified, go to home
+                    router.push('/rides');
+                } else if (refreshedUser) {
+                    // Email not verified, go to verification page
+                    router.push('/verify-email');
+                }
             }
         });
         return ()=>unsubscribe();
@@ -60,15 +69,14 @@ function Login() {
             const refreshedUser = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"].currentUser;
             // Check if email is verified
             if (!refreshedUser || !refreshedUser.emailVerified) {
-                setError("Please verify your email address before logging in. Check your inbox for the verification link.");
-                setShowResendVerification(true);
-                // Sign out the user since they haven't verified
-                await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"].signOut();
+                // Don't show error on page, just redirect to verify-email
+                // The auth state change will handle the redirect
                 setLoading(false);
                 return;
             }
             // Redirect to home after successful login
             router.push("/rides");
+            setLoading(false);
         } catch (err) {
             let friendly = "Login failed. Please try again.";
             if (err.code === "auth/invalid-credential" || err.code === "auth/user-not-found" || err.code === "auth/wrong-password") {
@@ -130,12 +138,12 @@ function Login() {
                                 children: "Welcome Back"
                             }, void 0, false, {
                                 fileName: "[project]/pages/login.jsx",
-                                lineNumber: 94,
+                                lineNumber: 102,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 93,
+                            lineNumber: 101,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -146,13 +154,13 @@ function Login() {
                             children: "Sign in to continue"
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 96,
+                            lineNumber: 104,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/login.jsx",
-                    lineNumber: 92,
+                    lineNumber: 100,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("form", {
@@ -164,7 +172,7 @@ function Login() {
                             children: error
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 101,
+                            lineNumber: 109,
                             columnNumber: 13
                         }, this),
                         verificationResent && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -172,7 +180,7 @@ function Login() {
                             children: "Verification email sent! Please check your inbox."
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 107,
+                            lineNumber: 115,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -183,7 +191,7 @@ function Login() {
                                     children: "Email Address"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 113,
+                                    lineNumber: 121,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -196,13 +204,13 @@ function Login() {
                                     placeholder: "you@example.com"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 116,
+                                    lineNumber: 124,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 112,
+                            lineNumber: 120,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -213,7 +221,7 @@ function Login() {
                                     children: "Password"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 128,
+                                    lineNumber: 136,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -226,13 +234,13 @@ function Login() {
                                     placeholder: "••••••••"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 131,
+                                    lineNumber: 139,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 127,
+                            lineNumber: 135,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -246,7 +254,7 @@ function Login() {
                             children: loading ? "Signing in..." : "Sign In"
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 142,
+                            lineNumber: 150,
                             columnNumber: 11
                         }, this),
                         showResendVerification && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -256,13 +264,13 @@ function Login() {
                             children: "Resend Verification Email"
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 152,
+                            lineNumber: 160,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/login.jsx",
-                    lineNumber: 99,
+                    lineNumber: 107,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -281,29 +289,29 @@ function Login() {
                                 children: "Sign up"
                             }, void 0, false, {
                                 fileName: "[project]/pages/login.jsx",
-                                lineNumber: 165,
+                                lineNumber: 173,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/login.jsx",
-                        lineNumber: 163,
+                        lineNumber: 171,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/login.jsx",
-                    lineNumber: 162,
+                    lineNumber: 170,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/pages/login.jsx",
-            lineNumber: 85,
+            lineNumber: 93,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/pages/login.jsx",
-        lineNumber: 84,
+        lineNumber: 92,
         columnNumber: 5
     }, this);
 }

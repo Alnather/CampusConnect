@@ -18,9 +18,18 @@ export default function Signup() {
 
   // Redirect if already logged in
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
-        router.push('/');
+        // Reload to get latest verification status
+        await currentUser.reload();
+        const refreshedUser = auth.currentUser;
+        if (refreshedUser?.emailVerified) {
+          // Email verified, go to home
+          router.push('/rides');
+        } else if (refreshedUser) {
+          // Email not verified, go to verification page
+          router.push('/verify-email');
+        }
       }
     });
     return () => unsubscribe();

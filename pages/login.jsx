@@ -16,9 +16,18 @@ export default function Login() {
 
   // Redirect if already logged in
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
-        router.push('/');
+        // Reload to get latest verification status
+        await currentUser.reload();
+        const refreshedUser = auth.currentUser;
+        if (refreshedUser?.emailVerified) {
+          // Email verified, go to home
+          router.push('/rides');
+        } else if (refreshedUser) {
+          // Email not verified, go to verification page
+          router.push('/verify-email');
+        }
       }
     });
     return () => unsubscribe();
@@ -38,15 +47,14 @@ export default function Login() {
       const refreshedUser = auth.currentUser;
       // Check if email is verified
       if (!refreshedUser || !refreshedUser.emailVerified) {
-        setError("Please verify your email address before logging in. Check your inbox for the verification link.");
-        setShowResendVerification(true);
-        // Sign out the user since they haven't verified
-        await auth.signOut();
+        // Don't show error on page, just redirect to verify-email
+        // The auth state change will handle the redirect
         setLoading(false);
         return;
       }
       // Redirect to home after successful login
       router.push("/rides");
+      setLoading(false);
     } catch (err) {
       let friendly = "Login failed. Please try again.";
       if (err.code === "auth/invalid-credential" || err.code === "auth/user-not-found" || err.code === "auth/wrong-password") {

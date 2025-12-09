@@ -14,18 +14,19 @@ export default function VerifyEmail() {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (!currentUser) {
+      if (currentUser) {
+        if (currentUser.emailVerified) {
+          // Already verified, redirect to home
+          router.push("/");
+        } else {
+          setUser(currentUser);
+          setLoading(false);
+        }
+      } else {
         // Not logged in, redirect to login
         router.push("/login");
-      } else if (currentUser.emailVerified) {
-        // Already verified, redirect to home
-        router.push("/");
-      } else {
-        setUser(currentUser);
-        setLoading(false);
       }
     });
-
     return () => unsubscribe();
   }, [router]);
 

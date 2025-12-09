@@ -539,15 +539,17 @@ function VerifyEmail() {
         "VerifyEmail.useEffect": ()=>{
             const unsubscribe = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["auth"], {
                 "VerifyEmail.useEffect.unsubscribe": (currentUser)=>{
-                    if (!currentUser) {
+                    if (currentUser) {
+                        if (currentUser.emailVerified) {
+                            // Already verified, redirect to home
+                            router.push("/");
+                        } else {
+                            setUser(currentUser);
+                            setLoading(false);
+                        }
+                    } else {
                         // Not logged in, redirect to login
                         router.push("/login");
-                    } else if (currentUser.emailVerified) {
-                        // Already verified, redirect to home
-                        router.push("/");
-                    } else {
-                        setUser(currentUser);
-                        setLoading(false);
                     }
                 }
             }["VerifyEmail.useEffect.unsubscribe"]);
@@ -598,12 +600,12 @@ function VerifyEmail() {
                 children: "Loading..."
             }, void 0, false, {
                 fileName: "[project]/pages/verify-email.jsx",
-                lineNumber: 73,
+                lineNumber: 74,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/pages/verify-email.jsx",
-            lineNumber: 72,
+            lineNumber: 73,
             columnNumber: 7
         }, this);
     }
@@ -630,12 +632,12 @@ function VerifyEmail() {
                                 children: "Verify Your Email"
                             }, void 0, false, {
                                 fileName: "[project]/pages/verify-email.jsx",
-                                lineNumber: 83,
+                                lineNumber: 84,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/verify-email.jsx",
-                            lineNumber: 82,
+                            lineNumber: 83,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -646,13 +648,13 @@ function VerifyEmail() {
                             children: "Check your inbox to continue"
                         }, void 0, false, {
                             fileName: "[project]/pages/verify-email.jsx",
-                            lineNumber: 85,
+                            lineNumber: 86,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/verify-email.jsx",
-                    lineNumber: 81,
+                    lineNumber: 82,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -669,7 +671,7 @@ function VerifyEmail() {
                                     children: "A verification email has been sent to:"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/verify-email.jsx",
-                                    lineNumber: 90,
+                                    lineNumber: 91,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -677,7 +679,7 @@ function VerifyEmail() {
                                     children: user?.email
                                 }, void 0, false, {
                                     fileName: "[project]/pages/verify-email.jsx",
-                                    lineNumber: 93,
+                                    lineNumber: 94,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -685,13 +687,13 @@ function VerifyEmail() {
                                     children: "Please check your inbox and click the verification link to activate your account."
                                 }, void 0, false, {
                                     fileName: "[project]/pages/verify-email.jsx",
-                                    lineNumber: 94,
+                                    lineNumber: 95,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/verify-email.jsx",
-                            lineNumber: 89,
+                            lineNumber: 90,
                             columnNumber: 11
                         }, this),
                         message && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -699,7 +701,7 @@ function VerifyEmail() {
                             children: message
                         }, void 0, false, {
                             fileName: "[project]/pages/verify-email.jsx",
-                            lineNumber: 100,
+                            lineNumber: 101,
                             columnNumber: 13
                         }, this),
                         error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -707,7 +709,7 @@ function VerifyEmail() {
                             children: error
                         }, void 0, false, {
                             fileName: "[project]/pages/verify-email.jsx",
-                            lineNumber: 106,
+                            lineNumber: 107,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -721,7 +723,7 @@ function VerifyEmail() {
                             children: "I've Verified My Email"
                         }, void 0, false, {
                             fileName: "[project]/pages/verify-email.jsx",
-                            lineNumber: 111,
+                            lineNumber: 112,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -735,7 +737,7 @@ function VerifyEmail() {
                             children: resending ? "Sending..." : "Resend Verification Email"
                         }, void 0, false, {
                             fileName: "[project]/pages/verify-email.jsx",
-                            lineNumber: 119,
+                            lineNumber: 120,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -746,29 +748,29 @@ function VerifyEmail() {
                                 children: "Sign out"
                             }, void 0, false, {
                                 fileName: "[project]/pages/verify-email.jsx",
-                                lineNumber: 129,
+                                lineNumber: 130,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/verify-email.jsx",
-                            lineNumber: 128,
+                            lineNumber: 129,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/verify-email.jsx",
-                    lineNumber: 88,
+                    lineNumber: 89,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/pages/verify-email.jsx",
-            lineNumber: 80,
+            lineNumber: 81,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/pages/verify-email.jsx",
-        lineNumber: 79,
+        lineNumber: 80,
         columnNumber: 5
     }, this);
 }
