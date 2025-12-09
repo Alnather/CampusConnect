@@ -39,7 +39,7 @@ export default function VerifyEmail() {
 
     try {
       await sendEmailVerification(user);
-      setMessage("Verification email sent! Please check your inbox.");
+      setMessage("Verification email sent! Please check your inbox and spam, it can take up to 3 minutes.");
     } catch (err) {
       setError(err.message || "Failed to resend verification email");
     } finally {
@@ -56,7 +56,7 @@ export default function VerifyEmail() {
         setMessage("Email verified! Redirecting...");
         setTimeout(() => router.push("/"), 2000);
       } else {
-        setError("Email not verified yet. Please check your inbox and click the verification link.");
+        setError("Email not verified yet. Please check your inbox and spam, and click the verification link.");
       }
     } catch (err) {
       setError("Failed to check verification status");
@@ -93,7 +93,7 @@ export default function VerifyEmail() {
             </p>
             <p className="font-semibold mt-2 text-white">{user?.email}</p>
             <p className="text-sm mt-3">
-              Please check your inbox and click the verification link to activate your account.
+              Please check your inbox and spam, and click the verification link to activate your account.
             </p>
           </div>
 
