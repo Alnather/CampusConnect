@@ -5,6 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import TopBar from "@/components/TopBar";
 import BottomNav from "@/components/BottomNav";
+import MessageNotification from "@/components/MessageNotification";
 
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
@@ -44,6 +45,7 @@ export default function App({ Component, pageProps }) {
   return (
     <div className="app-layout">
       <TopBar user={user} isAuthPage={isAuthPage} />
+      <MessageNotification user={user} />
       <main className="flex-1 w-full flex justify-center" style={{ marginTop: '10vh' }}>
         <div className="w-full max-w-2xl md:max-w-7xl px-6">
           <Component {...pageProps} user={user} loading={loading} />

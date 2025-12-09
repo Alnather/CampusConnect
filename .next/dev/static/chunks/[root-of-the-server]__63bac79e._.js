@@ -1501,10 +1501,9 @@ function Rides() {
                                                 transition: 'width 0.2s'
                                             },
                                             className: "jsx-2df4565939163d7b" + " " + "flex items-center justify-center flex-shrink-0",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiList"], {
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["MdEdit"], {
                                                 size: 24,
-                                                className: "text-white",
-                                                strokeWidth: 2.5
+                                                className: "text-white"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/rides.jsx",
                                                 lineNumber: 519,

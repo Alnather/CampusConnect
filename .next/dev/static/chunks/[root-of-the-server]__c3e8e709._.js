@@ -1293,11 +1293,19 @@ function CreateRide() {
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                type: "number",
+                                                                type: "text",
+                                                                inputMode: "numeric",
+                                                                pattern: "[1-8]",
                                                                 value: seats,
-                                                                onChange: (e)=>setSeats(Math.max(1, Math.min(8, parseInt(e.target.value) || 1))),
-                                                                min: "1",
-                                                                max: "8",
+                                                                onChange: (e)=>{
+                                                                    const val = e.target.value.replace(/[^1-8]/g, '');
+                                                                    if (val === '') setSeats('');
+                                                                    else setSeats(Math.max(1, Math.min(8, parseInt(val) || 1)));
+                                                                },
+                                                                onBlur: (e)=>{
+                                                                    if (!seats || seats === '') setSeats(4);
+                                                                },
+                                                                onFocus: (e)=>e.target.select(),
                                                                 placeholder: "Seats",
                                                                 style: {
                                                                     background: '#5a6f8226'
@@ -1339,7 +1347,7 @@ function CreateRide() {
                                                 className: "jsx-1bfe117c79888d07" + " " + "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 452,
+                                                lineNumber: 460,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1350,7 +1358,7 @@ function CreateRide() {
                                                         size: 20
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 454,
+                                                        lineNumber: 462,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -1366,19 +1374,19 @@ function CreateRide() {
                                                         className: "jsx-1bfe117c79888d07" + " " + "w-full pl-14 pr-6 py-5 backdrop-blur-xl border-2 border-white/20 rounded-[1rem] text-white text-base placeholder-gray-400 focus:border-primary/50 focus:outline-none transition-all duration-300 resize-none shadow-xl"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 455,
+                                                        lineNumber: 463,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 453,
+                                                lineNumber: 461,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/create-ride.jsx",
-                                        lineNumber: 447,
+                                        lineNumber: 455,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1391,7 +1399,7 @@ function CreateRide() {
                                                 className: "jsx-1bfe117c79888d07" + " " + "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 471,
+                                                lineNumber: 479,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1402,7 +1410,7 @@ function CreateRide() {
                                                         size: 22
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 473,
+                                                        lineNumber: 481,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1418,19 +1426,19 @@ function CreateRide() {
                                                         className: "jsx-1bfe117c79888d07" + " " + "w-full pr-6 backdrop-blur-xl border-2 border-white/20 rounded-[1rem] text-white text-lg font-semibold placeholder-gray-400 focus:border-primary/50 focus:outline-none transition-all duration-300 shadow-xl"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 474,
+                                                        lineNumber: 482,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 472,
+                                                lineNumber: 480,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/create-ride.jsx",
-                                        lineNumber: 467,
+                                        lineNumber: 475,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -1452,7 +1460,7 @@ function CreateRide() {
                                         children: submitting ? 'Creating Ride...' : 'Create Ride'
                                     }, void 0, false, {
                                         fileName: "[project]/pages/create-ride.jsx",
-                                        lineNumber: 487,
+                                        lineNumber: 495,
                                         columnNumber: 13
                                     }, this)
                                 ]

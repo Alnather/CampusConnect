@@ -42,7 +42,7 @@ export default function Signup() {
     // Validation - Check for @lakeforest.edu email
     if (!email.endsWith("@lakeforest.edu")) {
       setError("You must use a @lakeforest.edu email address to sign up");
-      return;
+      // return;
     }
 
     // Validation
@@ -124,8 +124,10 @@ export default function Signup() {
               </label>
               <input
                 id="firstName"
+                name="firstName"
                 type="text"
                 required
+                autoComplete="given-name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 className="input-field"
@@ -139,8 +141,10 @@ export default function Signup() {
               </label>
               <input
                 id="lastName"
+                name="lastName"
                 type="text"
                 required
+                autoComplete="family-name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 className="input-field"
@@ -155,8 +159,10 @@ export default function Signup() {
             </label>
             <input
               id="email"
+              name="email"
               type="email"
               required
+              autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="input-field"
@@ -173,8 +179,10 @@ export default function Signup() {
             </label>
             <input
               id="password"
+              name="password"
               type="password"
               required
+              autoComplete="new-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="input-field"
@@ -188,8 +196,10 @@ export default function Signup() {
             </label>
             <input
               id="confirmPassword"
+              name="confirmPassword"
               type="password"
               required
+              autoComplete="new-password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               className="input-field"

@@ -112,9 +112,9 @@ export default function AuthAction() {
 
           {status === "success" && mode === "verifyEmail" && (
             <div className="text-center pt-4">
-              <p className="text-gray-400 text-sm mb-4">Redirecting you to login...</p>
-              <Link href="/login" className="inline-block w-full py-3 px-4 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-primary text-white font-semibold rounded-xl transition-all text-center" style={{height:"5vh",marginTop:"3vh",display:"flex",alignItems:"center",justifyContent:"center"}}>
-                Go to Login
+              <p className="text-gray-400 text-sm mb-4">Redirecting you to Rides...</p>
+              <Link href="/rides" className="inline-block w-full py-3 px-4 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-primary text-white font-semibold rounded-xl transition-all text-center" style={{height:"5vh",marginTop:"3vh",display:"flex",alignItems:"center",justifyContent:"center"}}>
+                Go to Rides
               </Link>
             </div>
           )}

@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { FiArrowLeft, FiMapPin, FiCalendar, FiClock, FiUsers, FiMessageCircle, FiChevronLeft, FiTrash2, FiCheck, FiX, FiCamera, FiShare2, FiMoon, FiSun } from 'react-icons/fi';
-import { MdFlight, MdShoppingCart, MdLocationCity, MdArrowRightAlt, MdArrowBack, MdKeyboardArrowLeft, MdSchool } from 'react-icons/md';
+import { MdFlight, MdShoppingCart, MdLocationCity, MdArrowRightAlt, MdArrowBack, MdKeyboardArrowLeft, MdSchool, MdEdit } from 'react-icons/md';
 import { IoArrowBack, IoChevronBack } from 'react-icons/io5';
 import { HiArrowLeft } from 'react-icons/hi';
 import { db, auth, storage } from '../../lib/firebase';
-import { doc, getDoc, onSnapshot, collection, query, orderBy } from 'firebase/firestore';
+import { doc, getDoc, onSnapshot, collection, query, orderBy, setDoc, serverTimestamp } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 
 // Utility function to capitalize first letters
@@ -212,6 +212,28 @@ export default function RideDetail() {
       if (retryTimeout) clearTimeout(retryTimeout);
     };
   }, [id, ride, user]);
+
+  // Update lastRead when chat is open and messages change
+  useEffect(() => {
+    if (!id || !user || !ride) return;
+    if (!ride.participants.includes(user.uid)) return;
+    if (!isChatOpen) return;
+    if (messages.length === 0) return;
+
+    // Update lastRead timestamp when chat is open
+    const updateLastRead = async () => {
+      try {
+        const rideRef = doc(db, 'rides', id);
+        await setDoc(rideRef, {
+          [`lastRead_${user.uid}`]: serverTimestamp()
+        }, { merge: true });
+      } catch (error) {
+        console.error('Error updating lastRead:', error);
+      }
+    };
+
+    updateLastRead();
+  }, [id, user, ride, isChatOpen, messages.length]);
 
   // Fetch user data for participants
   useEffect(() => {
@@ -963,7 +985,7 @@ export default function RideDetail() {
                 className="rounded-full from-primary to-accent text-white font-bold bg-gradient-to-r transition-all flex items-center justify-center gap-2"
               >
                 Manage Ride
-                <MdArrowRightAlt size={32} />
+                <MdEdit size={24} />
               </motion.button>
             </>
           ) : (
@@ -985,7 +1007,7 @@ export default function RideDetail() {
                 }`}
             >
 
-              {isParticipant ? (isHoveringJoined ? '✗ Leave Ride' : '✓ Joined') : isFull ? 'Ride Full' : 'Request to Join'}
+              {isParticipant ? (isHoveringJoined ? '✗ Leave Ride' : '✓ Joined') : isFull ? 'Ride Full' : 'Join'}
               {!isParticipant && !isFull && <MdArrowRightAlt size={32} />}
             </motion.button>
           )}

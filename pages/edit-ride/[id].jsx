@@ -455,14 +455,19 @@ export default function EditRide() {
                 <div className="relative">
                   <FiUsers className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors duration-300 z-10" size={20} />
                   <input
-                    type="number"
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[1-8]"
                     value={seats}
                     onChange={(e) => {
-                      const newValue = Math.max(minSeats, Math.min(8, parseInt(e.target.value) || minSeats));
-                      setSeats(newValue);
+                      const val = e.target.value.replace(/[^1-8]/g, '');
+                      if (val === '') setSeats('');
+                      else setSeats(Math.max(minSeats, Math.min(8, parseInt(val) || minSeats)));
                     }}
-                    min={minSeats}
-                    max="8"
+                    onBlur={(e) => {
+                      if (!seats || seats === '') setSeats(minSeats);
+                    }}
+                    onFocus={(e) => e.target.select()}
                     placeholder="Seats"
                     style={{ background: '#5a6f8226' }}
                     className="w-full pl-11 pr-3 py-4 backdrop-blur-xl border-2 border-white/20 rounded-[1rem] text-white text-sm font-semibold placeholder-gray-400 focus:border-primary/50 focus:outline-none transition-all duration-300 shadow-xl pl-3 h-5"

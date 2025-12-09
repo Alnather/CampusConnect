@@ -574,7 +574,7 @@ function Signup() {
         // Validation - Check for @lakeforest.edu email
         if (!email.endsWith("@lakeforest.edu")) {
             setError("You must use a @lakeforest.edu email address to sign up");
-            return;
+        // return;
         }
         // Validation
         if (password !== confirmPassword) {
@@ -709,8 +709,10 @@ function Signup() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                             id: "firstName",
+                                            name: "firstName",
                                             type: "text",
                                             required: true,
+                                            autoComplete: "given-name",
                                             value: firstName,
                                             onChange: (e)=>setFirstName(e.target.value),
                                             className: "input-field",
@@ -734,26 +736,28 @@ function Signup() {
                                             children: "Last Name"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/signup.jsx",
-                                            lineNumber: 137,
+                                            lineNumber: 139,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                             id: "lastName",
+                                            name: "lastName",
                                             type: "text",
                                             required: true,
+                                            autoComplete: "family-name",
                                             value: lastName,
                                             onChange: (e)=>setLastName(e.target.value),
                                             className: "input-field",
                                             placeholder: "Doe"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/signup.jsx",
-                                            lineNumber: 140,
+                                            lineNumber: 142,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 136,
+                                    lineNumber: 138,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -770,20 +774,22 @@ function Signup() {
                                     children: "Email Address (Lake Forest College)"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 153,
+                                    lineNumber: 157,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                     id: "email",
+                                    name: "email",
                                     type: "email",
                                     required: true,
+                                    autoComplete: "email",
                                     value: email,
                                     onChange: (e)=>setEmail(e.target.value),
                                     className: "input-field",
                                     placeholder: "you@lakeforest.edu"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 156,
+                                    lineNumber: 160,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -791,13 +797,13 @@ function Signup() {
                                     children: "Must be a @lakeforest.edu email address"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 165,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 152,
+                            lineNumber: 156,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -808,26 +814,28 @@ function Signup() {
                                     children: "Password"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 171,
+                                    lineNumber: 177,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                     id: "password",
+                                    name: "password",
                                     type: "password",
                                     required: true,
+                                    autoComplete: "new-password",
                                     value: password,
                                     onChange: (e)=>setPassword(e.target.value),
                                     className: "input-field",
                                     placeholder: "••••••••"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 174,
+                                    lineNumber: 180,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 170,
+                            lineNumber: 176,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -838,26 +846,28 @@ function Signup() {
                                     children: "Confirm Password"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 186,
+                                    lineNumber: 194,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                     id: "confirmPassword",
+                                    name: "confirmPassword",
                                     type: "password",
                                     required: true,
+                                    autoComplete: "new-password",
                                     value: confirmPassword,
                                     onChange: (e)=>setConfirmPassword(e.target.value),
                                     className: "input-field",
                                     placeholder: "••••••••"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 189,
+                                    lineNumber: 197,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 185,
+                            lineNumber: 193,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -871,7 +881,7 @@ function Signup() {
                             children: loading ? "Creating account..." : "Create Account"
                         }, void 0, false, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 200,
+                            lineNumber: 210,
                             columnNumber: 11
                         }, this)
                     ]
@@ -896,18 +906,18 @@ function Signup() {
                                 children: "Sign in"
                             }, void 0, false, {
                                 fileName: "[project]/pages/signup.jsx",
-                                lineNumber: 213,
+                                lineNumber: 223,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/signup.jsx",
-                        lineNumber: 211,
+                        lineNumber: 221,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/signup.jsx",
-                    lineNumber: 210,
+                    lineNumber: 220,
                     columnNumber: 9
                 }, this)
             ]

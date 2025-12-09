@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiPlus, FiMapPin, FiCalendar, FiClock, FiUsers, FiChevronRight, FiArrowRight, FiList } from 'react-icons/fi';
-import { MdFlight, MdShoppingCart, MdLocationCity, MdArrowRightAlt, MdSchool } from 'react-icons/md';
+import { FiPlus, FiMapPin, FiCalendar, FiClock, FiUsers, FiChevronRight, FiArrowRight } from 'react-icons/fi';
+import { MdFlight, MdShoppingCart, MdLocationCity, MdArrowRightAlt, MdSchool, MdEdit } from 'react-icons/md';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { db, auth } from '../lib/firebase';
@@ -516,7 +516,7 @@ export default function Rides() {
         >
           <div className="flex items-center gap-3 w-full">
             <div className="flex items-center justify-center flex-shrink-0" style={{ width: hoveredFAB === 'myRides' ? '48px' : '64px', transition: 'width 0.2s' }}>
-              <FiList size={24} className="text-white" strokeWidth={2.5} />
+              <MdEdit size={24} className="text-white" />
             </div>
             <motion.span
               initial={{ opacity: 0, width: 0 }}

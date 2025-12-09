@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { FiUser, FiShoppingBag, FiInfo, FiMessageCircle, FiUsers, FiLogIn } from 'react-icons/fi';
 import { IoCarSport } from 'react-icons/io5';
 import Link from 'next/link';
 import { db, auth } from '../lib/firebase';
-import { collection, query, where, onSnapshot } from 'firebase/firestore';
+import { collection, query, where, onSnapshot, orderBy, doc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 
 const colorPalettes = {
@@ -185,19 +185,39 @@ export default function TopBar({ user, isAuthPage }) {
     return () => unsubscribe();
   }, []);
 
-  // Track unread messages
+  // Track unread messages using client-side filtering
   useEffect(() => {
     if (!currentUser) {
       setUnreadCount(0);
       return;
     }
 
-    const threadCounts = new Map();
+    const threadData = new Map();
     const messageUnsubscribers = new Map();
+    const docUnsubscribers = new Map();
     const unsubscribers = [];
 
+    const calculateUnreadForThread = (threadKey) => {
+      const data = threadData.get(threadKey);
+      if (!data || !data.messages) return 0;
+      
+      const lastReadTime = data.lastReadTimestamp?.toDate ? data.lastReadTimestamp.toDate() : new Date(0);
+      
+      return data.messages.filter(msg => {
+        const msgTime = msg.timestamp?.toDate ? msg.timestamp.toDate() : new Date(0);
+        if (data.type === 'ride') {
+          return msgTime > lastReadTime && msg.senderId !== currentUser.uid;
+        } else {
+          return msgTime > lastReadTime && msg.senderId === data.otherUserId;
+        }
+      }).length;
+    };
+
     const updateTotalUnread = () => {
-      const total = Array.from(threadCounts.values()).reduce((sum, count) => sum + count, 0);
+      let total = 0;
+      threadData.forEach((_, threadKey) => {
+        total += calculateUnreadForThread(threadKey);
+      });
       setUnreadCount(total);
     };
 
@@ -206,38 +226,58 @@ export default function TopBar({ user, isAuthPage }) {
     const ridesQuery = query(ridesRef, where('participants', 'array-contains', currentUser.uid));
     
     const unsubRides = onSnapshot(ridesQuery, (snapshot) => {
-      snapshot.docs.forEach(async (rideDoc) => {
+      snapshot.docs.forEach((rideDoc) => {
         const rideData = rideDoc.data();
-        const lastReadTimestamp = rideData[`lastRead_${currentUser.uid}`];
-        
-        if (lastReadTimestamp === null) return;
-        
         const threadKey = 'ride_' + rideDoc.id;
         
-        if (messageUnsubscribers.has(threadKey)) {
-          messageUnsubscribers.get(threadKey)();
-          messageUnsubscribers.delete(threadKey);
-        }
-        
-        const messagesRef = collection(db, 'rides', rideDoc.id, 'messages');
-        let messagesQuery;
-        
-        if (lastReadTimestamp) {
-          messagesQuery = query(
-            messagesRef,
-            where('timestamp', '>', lastReadTimestamp),
-            where('senderId', '!=', currentUser.uid)
-          );
+        if (!threadData.has(threadKey)) {
+          threadData.set(threadKey, {
+            type: 'ride',
+            lastReadTimestamp: rideData[`lastRead_${currentUser.uid}`],
+            messages: []
+          });
         } else {
-          messagesQuery = query(messagesRef, where('senderId', '!=', currentUser.uid));
+          const existing = threadData.get(threadKey);
+          const newLastRead = rideData[`lastRead_${currentUser.uid}`];
+          if (newLastRead !== null && newLastRead !== undefined) {
+            existing.lastReadTimestamp = newLastRead;
+          }
         }
         
-        const unsubMsg = onSnapshot(messagesQuery, (msgSnap) => {
-          threadCounts.set(threadKey, msgSnap.size);
-          updateTotalUnread();
-        });
+        // Set up document listener for lastRead changes
+        if (!docUnsubscribers.has(threadKey)) {
+          const rideDocRef = doc(db, 'rides', rideDoc.id);
+          const unsubDoc = onSnapshot(rideDocRef, (updatedDoc) => {
+            const data = threadData.get(threadKey);
+            if (!data) return;
+            
+            const updatedData = updatedDoc.data();
+            if (updatedData) {
+              const newLastRead = updatedData[`lastRead_${currentUser.uid}`];
+              if (newLastRead !== null && newLastRead !== undefined) {
+                data.lastReadTimestamp = newLastRead;
+                updateTotalUnread();
+              }
+            }
+          });
+          docUnsubscribers.set(threadKey, unsubDoc);
+        }
         
-        messageUnsubscribers.set(threadKey, unsubMsg);
+        // Set up messages listener
+        if (!messageUnsubscribers.has(threadKey)) {
+          const messagesRef = collection(db, 'rides', rideDoc.id, 'messages');
+          const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'));
+          
+          const unsubMsg = onSnapshot(messagesQuery, (msgSnap) => {
+            const data = threadData.get(threadKey);
+            if (data) {
+              data.messages = msgSnap.docs.map(d => d.data());
+              updateTotalUnread();
+            }
+          });
+          
+          messageUnsubscribers.set(threadKey, unsubMsg);
+        }
       });
     });
 
@@ -246,39 +286,60 @@ export default function TopBar({ user, isAuthPage }) {
     const directQuery = query(directRef, where('participants', 'array-contains', currentUser.uid));
     
     const unsubDirect = onSnapshot(directQuery, (snapshot) => {
-      snapshot.docs.forEach(async (threadDoc) => {
-        const threadData = threadDoc.data();
-        const lastReadTimestamp = threadData[`lastRead_${currentUser.uid}`];
-        const otherUserId = threadData.participants.find(id => id !== currentUser.uid);
-        
-        if (lastReadTimestamp === null) return;
-        
+      snapshot.docs.forEach((threadDoc) => {
+        const dmData = threadDoc.data();
+        const otherUserId = dmData.participants.find(id => id !== currentUser.uid);
         const threadKey = 'direct_' + threadDoc.id;
         
-        if (messageUnsubscribers.has(threadKey)) {
-          messageUnsubscribers.get(threadKey)();
-          messageUnsubscribers.delete(threadKey);
-        }
-        
-        const messagesRef = collection(db, 'directMessages', threadDoc.id, 'messages');
-        let messagesQuery;
-        
-        if (lastReadTimestamp) {
-          messagesQuery = query(
-            messagesRef,
-            where('timestamp', '>', lastReadTimestamp),
-            where('senderId', '==', otherUserId)
-          );
+        if (!threadData.has(threadKey)) {
+          threadData.set(threadKey, {
+            type: 'direct',
+            lastReadTimestamp: dmData[`lastRead_${currentUser.uid}`],
+            otherUserId: otherUserId,
+            messages: []
+          });
         } else {
-          messagesQuery = query(messagesRef, where('senderId', '==', otherUserId));
+          const existing = threadData.get(threadKey);
+          const newLastRead = dmData[`lastRead_${currentUser.uid}`];
+          if (newLastRead !== null && newLastRead !== undefined) {
+            existing.lastReadTimestamp = newLastRead;
+          }
         }
         
-        const unsubMsg = onSnapshot(messagesQuery, (msgSnap) => {
-          threadCounts.set(threadKey, msgSnap.size);
-          updateTotalUnread();
-        });
+        // Set up document listener for lastRead changes
+        if (!docUnsubscribers.has(threadKey)) {
+          const threadDocRef = doc(db, 'directMessages', threadDoc.id);
+          const unsubDoc = onSnapshot(threadDocRef, (updatedDoc) => {
+            const data = threadData.get(threadKey);
+            if (!data) return;
+            
+            const updatedData = updatedDoc.data();
+            if (updatedData) {
+              const newLastRead = updatedData[`lastRead_${currentUser.uid}`];
+              if (newLastRead !== null && newLastRead !== undefined) {
+                data.lastReadTimestamp = newLastRead;
+                updateTotalUnread();
+              }
+            }
+          });
+          docUnsubscribers.set(threadKey, unsubDoc);
+        }
         
-        messageUnsubscribers.set(threadKey, unsubMsg);
+        // Set up messages listener
+        if (!messageUnsubscribers.has(threadKey)) {
+          const messagesRef = collection(db, 'directMessages', threadDoc.id, 'messages');
+          const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'));
+          
+          const unsubMsg = onSnapshot(messagesQuery, (msgSnap) => {
+            const data = threadData.get(threadKey);
+            if (data) {
+              data.messages = msgSnap.docs.map(d => d.data());
+              updateTotalUnread();
+            }
+          });
+          
+          messageUnsubscribers.set(threadKey, unsubMsg);
+        }
       });
     });
 
@@ -287,6 +348,7 @@ export default function TopBar({ user, isAuthPage }) {
     return () => {
       unsubscribers.forEach(unsub => unsub());
       messageUnsubscribers.forEach(unsub => unsub());
+      docUnsubscribers.forEach(unsub => unsub());
     };
   }, [currentUser]);
 

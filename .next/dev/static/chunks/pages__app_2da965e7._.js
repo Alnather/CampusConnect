@@ -1,6 +1,7 @@
 (globalThis.TURBOPACK_CHUNK_LISTS || (globalThis.TURBOPACK_CHUNK_LISTS = [])).push({
     script: typeof document === "object" ? document.currentScript : undefined,
     chunks: [
+  "static/chunks/[root-of-the-server]__d1ab80ac._.js",
   "static/chunks/node_modules_next_dist_compiled_caaa605a._.js",
   "static/chunks/node_modules_next_dist_shared_lib_4025f6b7._.js",
   "static/chunks/node_modules_next_dist_client_3ede7da4._.js",
@@ -11,12 +12,11 @@
   "static/chunks/node_modules_@firebase_firestore_dist_index_esm_a1d87665.js",
   "static/chunks/node_modules_@firebase_storage_dist_index_esm_c28a6df1.js",
   "static/chunks/node_modules_motion-dom_dist_es_01ad550f._.js",
-  "static/chunks/node_modules_framer-motion_dist_es_c152664b._.js",
+  "static/chunks/node_modules_framer-motion_dist_es_fab66f54._.js",
   "static/chunks/node_modules_react-icons_fi_index_mjs_cfeda098._.js",
   "static/chunks/node_modules_react-icons_io5_index_mjs_92991f0a._.js",
   "static/chunks/node_modules_react-icons_lib_7cd2a28b._.js",
   "static/chunks/node_modules_aaa97943._.js",
-  "static/chunks/[root-of-the-server]__e2939d30._.js",
   "static/chunks/styles_globals_dc36e6c9.css"
 ],
     source: "entry"
