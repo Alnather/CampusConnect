@@ -542,6 +542,89 @@ const capitalizeName = (name)=>{
     if (!name) return '';
     return name.split(' ').map((word)=>word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 };
+// Destination theme detection for rides
+const shoppingLocations = [
+    'target',
+    'walmart',
+    'costco',
+    'whole foods',
+    'trader joe',
+    'jewel',
+    'mariano',
+    'mall',
+    'outlet'
+];
+const downtownKeywords = [
+    'downtown',
+    'city center',
+    'downtown chicago',
+    'magnificent mile',
+    'loop',
+    'chicago'
+];
+const collegeKeywords = [
+    'lake forest',
+    'college',
+    'university',
+    'campus',
+    'northwestern',
+    'depaul',
+    'loyola',
+    'uic',
+    'uchicago'
+];
+const destinationThemes = {
+    'airport': {
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["MdFlight"],
+        gradient: 'from-blue-500/20 via-cyan-500/10 to-transparent',
+        iconColor: 'text-cyan-400'
+    },
+    'shopping': {
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["MdShoppingCart"],
+        gradient: 'from-red-500/20 via-pink-500/10 to-transparent',
+        iconColor: 'text-pink-400'
+    },
+    'downtown': {
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["MdLocationCity"],
+        gradient: 'from-purple-500/20 via-indigo-500/10 to-transparent',
+        iconColor: 'text-indigo-400'
+    },
+    'college': {
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["MdSchool"],
+        gradient: 'from-green-500/20 via-emerald-500/10 to-transparent',
+        iconColor: 'text-emerald-400'
+    },
+    'default': {
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiMapPin"],
+        gradient: 'from-gray-500/20 via-gray-500/10 to-transparent',
+        iconColor: 'text-gray-400'
+    }
+};
+const getDestinationTheme = (destination)=>{
+    const lowerDest = destination?.toLowerCase() || '';
+    if (lowerDest.includes('airport') || lowerDest.includes('ord') || lowerDest.includes('mdw')) return destinationThemes['airport'];
+    if (shoppingLocations.some((shop)=>lowerDest.includes(shop))) return destinationThemes['shopping'];
+    if (downtownKeywords.some((keyword)=>lowerDest.includes(keyword))) return destinationThemes['downtown'];
+    if (collegeKeywords.some((keyword)=>lowerDest.includes(keyword))) return destinationThemes['college'];
+    return destinationThemes['default'];
+};
+// Format date from Timestamp or string
+const formatRideDate = (date)=>{
+    if (!date) return 'No date';
+    let dateObj;
+    if (date?.toDate) {
+        dateObj = date.toDate();
+    } else if (typeof date === 'string') {
+        dateObj = new Date(date + 'T12:00:00');
+    } else {
+        return 'Invalid date';
+    }
+    return dateObj.toLocaleDateString('en-US', {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric'
+    });
+};
 function PublicProfile() {
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
@@ -625,14 +708,9 @@ function PublicProfile() {
                         const ridesQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], 'rides'), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('organizerId', '==', id), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["limit"])(20));
                         const ridesSnap = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getDocs"])(ridesQuery);
                         console.log('Rides found:', ridesSnap.docs.length);
-                        ridesSnap.docs.forEach({
-                            "PublicProfile.useEffect.fetchProfileData": (doc)=>{
-                                console.log('Ride:', doc.id, doc.data());
-                            }
-                        }["PublicProfile.useEffect.fetchProfileData"]);
                         // Filter expired rides and sort client-side
-                        const today = new Date().toISOString().split('T')[0];
-                        console.log('Today for filtering:', today);
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0); // Start of today
                         const filteredRides = ridesSnap.docs.map({
                             "PublicProfile.useEffect.fetchProfileData.filteredRides": (doc)=>({
                                     id: doc.id,
@@ -640,12 +718,25 @@ function PublicProfile() {
                                 })
                         }["PublicProfile.useEffect.fetchProfileData.filteredRides"]).filter({
                             "PublicProfile.useEffect.fetchProfileData.filteredRides": (ride)=>{
-                                const isUpcoming = ride.date >= today;
-                                console.log('Ride date:', ride.date, 'isUpcoming:', isUpcoming);
-                                return isUpcoming;
+                                // Handle both Timestamp objects and string dates
+                                let rideDate;
+                                if (ride.date?.toDate) {
+                                    // Firestore Timestamp
+                                    rideDate = ride.date.toDate();
+                                } else if (typeof ride.date === 'string') {
+                                    // String date like "2025-12-19"
+                                    rideDate = new Date(ride.date);
+                                } else {
+                                    return false;
+                                }
+                                return rideDate >= today;
                             }
                         }["PublicProfile.useEffect.fetchProfileData.filteredRides"]).sort({
-                            "PublicProfile.useEffect.fetchProfileData.filteredRides": (a, b)=>a.date.localeCompare(b.date)
+                            "PublicProfile.useEffect.fetchProfileData.filteredRides": (a, b)=>{
+                                const dateA = a.date?.toDate ? a.date.toDate() : new Date(a.date);
+                                const dateB = b.date?.toDate ? b.date.toDate() : new Date(b.date);
+                                return dateA - dateB;
+                            }
                         }["PublicProfile.useEffect.fetchProfileData.filteredRides"]).slice(0, 6);
                         console.log('Filtered rides:', filteredRides);
                         setRides(filteredRides);
@@ -673,7 +764,7 @@ function PublicProfile() {
                         className: "w-16 h-16 mx-auto mb-4 border-4 border-primary/30 border-t-primary rounded-full animate-spin"
                     }, void 0, false, {
                         fileName: "[project]/pages/profile/[id].jsx",
-                        lineNumber: 128,
+                        lineNumber: 176,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -681,18 +772,18 @@ function PublicProfile() {
                         children: "Loading profile..."
                     }, void 0, false, {
                         fileName: "[project]/pages/profile/[id].jsx",
-                        lineNumber: 129,
+                        lineNumber: 177,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/profile/[id].jsx",
-                lineNumber: 127,
+                lineNumber: 175,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/pages/profile/[id].jsx",
-            lineNumber: 126,
+            lineNumber: 174,
             columnNumber: 7
         }, this);
     }
@@ -707,7 +798,7 @@ function PublicProfile() {
                         className: "mx-auto text-gray-600 mb-4"
                     }, void 0, false, {
                         fileName: "[project]/pages/profile/[id].jsx",
-                        lineNumber: 139,
+                        lineNumber: 187,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -715,7 +806,7 @@ function PublicProfile() {
                         children: "User Not Found"
                     }, void 0, false, {
                         fileName: "[project]/pages/profile/[id].jsx",
-                        lineNumber: 140,
+                        lineNumber: 188,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -723,7 +814,7 @@ function PublicProfile() {
                         children: "This profile doesn't exist or has been removed."
                     }, void 0, false, {
                         fileName: "[project]/pages/profile/[id].jsx",
-                        lineNumber: 141,
+                        lineNumber: 189,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -732,18 +823,18 @@ function PublicProfile() {
                         children: "Go Back"
                     }, void 0, false, {
                         fileName: "[project]/pages/profile/[id].jsx",
-                        lineNumber: 142,
+                        lineNumber: 190,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/profile/[id].jsx",
-                lineNumber: 138,
+                lineNumber: 186,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/pages/profile/[id].jsx",
-            lineNumber: 137,
+            lineNumber: 185,
             columnNumber: 7
         }, this);
     }
@@ -753,10 +844,10 @@ function PublicProfile() {
         year: 'numeric'
     }) : 'Recently joined';
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "w-full min-h-screen bg-transparent pb-32",
+        className: "w-full min-h-screen bg-transparent pb-32 flex flex-col items-center",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "backdrop-blur-2xl",
+                className: "w-full backdrop-blur-2xl",
                 style: {
                     marginTop: "2vh",
                     marginBottom: "2vh"
@@ -778,12 +869,12 @@ function PublicProfile() {
                                 size: 28
                             }, void 0, false, {
                                 fileName: "[project]/pages/profile/[id].jsx",
-                                lineNumber: 176,
+                                lineNumber: 224,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/profile/[id].jsx",
-                            lineNumber: 170,
+                            lineNumber: 218,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].h1, {
@@ -799,22 +890,22 @@ function PublicProfile() {
                             children: "Back"
                         }, void 0, false, {
                             fileName: "[project]/pages/profile/[id].jsx",
-                            lineNumber: 180,
+                            lineNumber: 228,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/profile/[id].jsx",
-                    lineNumber: 168,
+                    lineNumber: 216,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/profile/[id].jsx",
-                lineNumber: 167,
+                lineNumber: 215,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "max-w-2xl mx-auto py-8",
+                className: "w-full max-w-2xl mx-auto py-8",
                 style: isMobile ? {
                     paddingLeft: '4vw',
                     paddingRight: '4vw'
@@ -842,19 +933,19 @@ function PublicProfile() {
                                     className: "w-full h-full object-cover"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/profile/[id].jsx",
-                                    lineNumber: 203,
+                                    lineNumber: 251,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiUser"], {
                                     size: 56,
                                     className: "text-white"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/profile/[id].jsx",
-                                    lineNumber: 205,
+                                    lineNumber: 253,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/pages/profile/[id].jsx",
-                                lineNumber: 201,
+                                lineNumber: 249,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -865,7 +956,7 @@ function PublicProfile() {
                                         children: displayName
                                     }, void 0, false, {
                                         fileName: "[project]/pages/profile/[id].jsx",
-                                        lineNumber: 211,
+                                        lineNumber: 259,
                                         columnNumber: 13
                                     }, this),
                                     profileUser.emailVerified && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["MdVerified"], {
@@ -873,13 +964,13 @@ function PublicProfile() {
                                         size: 28
                                     }, void 0, false, {
                                         fileName: "[project]/pages/profile/[id].jsx",
-                                        lineNumber: 213,
+                                        lineNumber: 261,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/profile/[id].jsx",
-                                lineNumber: 210,
+                                lineNumber: 258,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -889,7 +980,7 @@ function PublicProfile() {
                                         size: 16
                                     }, void 0, false, {
                                         fileName: "[project]/pages/profile/[id].jsx",
-                                        lineNumber: 219,
+                                        lineNumber: 267,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -900,13 +991,13 @@ function PublicProfile() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/profile/[id].jsx",
-                                        lineNumber: 220,
+                                        lineNumber: 268,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/profile/[id].jsx",
-                                lineNumber: 218,
+                                lineNumber: 266,
                                 columnNumber: 11
                             }, this),
                             profileUser.emailVerified && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -914,13 +1005,13 @@ function PublicProfile() {
                                 children: "✓ Verified Student"
                             }, void 0, false, {
                                 fileName: "[project]/pages/profile/[id].jsx",
-                                lineNumber: 225,
+                                lineNumber: 273,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/profile/[id].jsx",
-                        lineNumber: 195,
+                        lineNumber: 243,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -947,12 +1038,12 @@ function PublicProfile() {
                                             className: "text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/profile/[id].jsx",
-                                            lineNumber: 240,
+                                            lineNumber: 288,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/pages/profile/[id].jsx",
-                                        lineNumber: 239,
+                                        lineNumber: 287,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -960,13 +1051,13 @@ function PublicProfile() {
                                         children: "Listings"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/profile/[id].jsx",
-                                        lineNumber: 242,
+                                        lineNumber: 290,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/profile/[id].jsx",
-                                lineNumber: 238,
+                                lineNumber: 286,
                                 columnNumber: 11
                             }, this),
                             listings.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -982,12 +1073,12 @@ function PublicProfile() {
                                     children: "No active listings"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/profile/[id].jsx",
-                                    lineNumber: 248,
+                                    lineNumber: 296,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/pages/profile/[id].jsx",
-                                lineNumber: 246,
+                                lineNumber: 294,
                                 columnNumber: 13
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "grid grid-cols-2 md:grid-cols-3 gap-4",
@@ -1009,7 +1100,7 @@ function PublicProfile() {
                                                     className: "w-full h-full object-cover"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/profile/[id].jsx",
-                                                    lineNumber: 262,
+                                                    lineNumber: 310,
                                                     columnNumber: 23
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "w-full h-full flex items-center justify-center",
@@ -1018,17 +1109,17 @@ function PublicProfile() {
                                                         className: "text-gray-600"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/profile/[id].jsx",
-                                                        lineNumber: 265,
+                                                        lineNumber: 313,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/profile/[id].jsx",
-                                                    lineNumber: 264,
+                                                    lineNumber: 312,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/profile/[id].jsx",
-                                                lineNumber: 260,
+                                                lineNumber: 308,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1036,7 +1127,7 @@ function PublicProfile() {
                                                 children: listing.name
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/profile/[id].jsx",
-                                                lineNumber: 269,
+                                                lineNumber: 317,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1044,24 +1135,24 @@ function PublicProfile() {
                                                 children: listing.priceType === 'free' || listing.price === 0 ? 'FREE' : `$${listing.price}`
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/profile/[id].jsx",
-                                                lineNumber: 270,
+                                                lineNumber: 318,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, listing.id, true, {
                                         fileName: "[project]/pages/profile/[id].jsx",
-                                        lineNumber: 253,
+                                        lineNumber: 301,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/pages/profile/[id].jsx",
-                                lineNumber: 251,
+                                lineNumber: 299,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/profile/[id].jsx",
-                        lineNumber: 232,
+                        lineNumber: 280,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1090,12 +1181,12 @@ function PublicProfile() {
                                             className: "text-cyan-400"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/profile/[id].jsx",
-                                            lineNumber: 288,
+                                            lineNumber: 336,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/pages/profile/[id].jsx",
-                                        lineNumber: 287,
+                                        lineNumber: 335,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1103,13 +1194,13 @@ function PublicProfile() {
                                         children: "Rides"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/profile/[id].jsx",
-                                        lineNumber: 290,
+                                        lineNumber: 338,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/profile/[id].jsx",
-                                lineNumber: 286,
+                                lineNumber: 334,
                                 columnNumber: 11
                             }, this),
                             rides.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1125,110 +1216,214 @@ function PublicProfile() {
                                     children: "No upcoming rides"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/profile/[id].jsx",
-                                    lineNumber: 296,
+                                    lineNumber: 344,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/pages/profile/[id].jsx",
-                                lineNumber: 294,
+                                lineNumber: 342,
                                 columnNumber: 13
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "space-y-3",
-                                children: rides.map((ride)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                className: "space-y-4",
+                                children: rides.map((ride, index)=>{
+                                    const theme = getDestinationTheme(ride.destination);
+                                    const DestIcon = theme.icon;
+                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                        initial: {
+                                            opacity: 0,
+                                            y: 20
+                                        },
+                                        animate: {
+                                            opacity: 1,
+                                            y: 0
+                                        },
+                                        transition: {
+                                            delay: index * 0.05
+                                        },
                                         whileHover: {
+                                            y: -2,
                                             scale: 1.01
                                         },
                                         whileTap: {
                                             scale: 0.99
                                         },
                                         onClick: ()=>router.push(`/ride/${ride.id}`),
-                                        className: "bg-white/5 rounded-2xl border border-white/10 p-4 cursor-pointer hover:border-primary/30 transition-all",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex items-center justify-between",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                            className: "font-semibold text-white",
-                                                            children: ride.destination
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/pages/profile/[id].jsx",
-                                                            lineNumber: 310,
-                                                            columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                            className: "text-sm text-gray-400",
-                                                            children: [
-                                                                new Date(ride.date + 'T12:00:00').toLocaleDateString('en-US', {
-                                                                    month: 'short',
-                                                                    day: 'numeric'
-                                                                }),
-                                                                " at ",
-                                                                ride.time
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/pages/profile/[id].jsx",
-                                                            lineNumber: 311,
-                                                            columnNumber: 23
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/pages/profile/[id].jsx",
-                                                    lineNumber: 309,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "text-right",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-sm text-primary font-semibold",
+                                        className: "group relative cursor-pointer",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: `absolute inset-0 bg-gradient-to-br ${theme.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`
+                                            }, void 0, false, {
+                                                fileName: "[project]/pages/profile/[id].jsx",
+                                                lineNumber: 364,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden group-hover:border-white/20 transition-all duration-300",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: `absolute inset-0 bg-gradient-to-br ${theme.gradient} opacity-50`
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/pages/profile/[id].jsx",
+                                                        lineNumber: 369,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "relative p-4 flex items-center gap-4",
                                                         children: [
-                                                            ride.members,
-                                                            "/",
-                                                            ride.seats,
-                                                            " seats"
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DestIcon, {
+                                                                    className: theme.iconColor,
+                                                                    size: 28
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/pages/profile/[id].jsx",
+                                                                    lineNumber: 375,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/pages/profile/[id].jsx",
+                                                                lineNumber: 374,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex-1 min-w-0",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                                        className: "font-bold text-white text-lg truncate",
+                                                                        children: ride.destination
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/pages/profile/[id].jsx",
+                                                                        lineNumber: 380,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex items-center gap-2 text-sm text-gray-400",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                children: formatRideDate(ride.date)
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/pages/profile/[id].jsx",
+                                                                                lineNumber: 382,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-gray-600",
+                                                                                children: "•"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/pages/profile/[id].jsx",
+                                                                                lineNumber: 383,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                children: ride.time
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/pages/profile/[id].jsx",
+                                                                                lineNumber: 384,
+                                                                                columnNumber: 29
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/pages/profile/[id].jsx",
+                                                                        lineNumber: 381,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/pages/profile/[id].jsx",
+                                                                lineNumber: 379,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex items-center gap-3",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "text-right",
+                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "flex items-center gap-1 text-sm text-gray-400",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiUsers"], {
+                                                                                    size: 14
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/pages/profile/[id].jsx",
+                                                                                    lineNumber: 392,
+                                                                                    columnNumber: 31
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    children: [
+                                                                                        ride.members || 1,
+                                                                                        "/",
+                                                                                        ride.seats
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/pages/profile/[id].jsx",
+                                                                                    lineNumber: 393,
+                                                                                    columnNumber: 31
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/pages/profile/[id].jsx",
+                                                                            lineNumber: 391,
+                                                                            columnNumber: 29
+                                                                        }, this)
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/pages/profile/[id].jsx",
+                                                                        lineNumber: 390,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["MdArrowRightAlt"], {
+                                                                        className: "text-primary",
+                                                                        size: 24
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/pages/profile/[id].jsx",
+                                                                        lineNumber: 396,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/pages/profile/[id].jsx",
+                                                                lineNumber: 389,
+                                                                columnNumber: 25
+                                                            }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/pages/profile/[id].jsx",
-                                                        lineNumber: 319,
+                                                        lineNumber: 372,
                                                         columnNumber: 23
                                                     }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/pages/profile/[id].jsx",
-                                                    lineNumber: 318,
-                                                    columnNumber: 21
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/pages/profile/[id].jsx",
-                                            lineNumber: 308,
-                                            columnNumber: 19
-                                        }, this)
-                                    }, ride.id, false, {
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/pages/profile/[id].jsx",
+                                                lineNumber: 367,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, ride.id, true, {
                                         fileName: "[project]/pages/profile/[id].jsx",
-                                        lineNumber: 301,
-                                        columnNumber: 17
-                                    }, this))
+                                        lineNumber: 353,
+                                        columnNumber: 19
+                                    }, this);
+                                })
                             }, void 0, false, {
                                 fileName: "[project]/pages/profile/[id].jsx",
-                                lineNumber: 299,
+                                lineNumber: 347,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/profile/[id].jsx",
-                        lineNumber: 280,
+                        lineNumber: 328,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/profile/[id].jsx",
-                lineNumber: 190,
+                lineNumber: 238,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/profile/[id].jsx",
-        lineNumber: 165,
+        lineNumber: 213,
         columnNumber: 5
     }, this);
 }

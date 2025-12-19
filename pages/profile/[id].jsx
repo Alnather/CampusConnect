@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { FiUser, FiMail, FiPackage, FiCalendar } from 'react-icons/fi';
+import { FiUser, FiMail, FiPackage, FiCalendar, FiUsers, FiMapPin } from 'react-icons/fi';
 import { HiArrowLeft } from 'react-icons/hi';
-import { MdFlight, MdVerified } from 'react-icons/md';
+import { MdFlight, MdVerified, MdShoppingCart, MdLocationCity, MdSchool, MdArrowRightAlt } from 'react-icons/md';
 import { db, auth } from '@/lib/firebase';
 import { doc, getDoc, collection, query, where, getDocs, orderBy, limit } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -14,6 +14,42 @@ const capitalizeName = (name) => {
   return name.split(' ').map(word =>
     word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
   ).join(' ');
+};
+
+// Destination theme detection for rides
+const shoppingLocations = ['target', 'walmart', 'costco', 'whole foods', 'trader joe', 'jewel', 'mariano', 'mall', 'outlet'];
+const downtownKeywords = ['downtown', 'city center', 'downtown chicago', 'magnificent mile', 'loop', 'chicago'];
+const collegeKeywords = ['lake forest', 'college', 'university', 'campus', 'northwestern', 'depaul', 'loyola', 'uic', 'uchicago'];
+
+const destinationThemes = {
+  'airport': { icon: MdFlight, gradient: 'from-blue-500/20 via-cyan-500/10 to-transparent', iconColor: 'text-cyan-400' },
+  'shopping': { icon: MdShoppingCart, gradient: 'from-red-500/20 via-pink-500/10 to-transparent', iconColor: 'text-pink-400' },
+  'downtown': { icon: MdLocationCity, gradient: 'from-purple-500/20 via-indigo-500/10 to-transparent', iconColor: 'text-indigo-400' },
+  'college': { icon: MdSchool, gradient: 'from-green-500/20 via-emerald-500/10 to-transparent', iconColor: 'text-emerald-400' },
+  'default': { icon: FiMapPin, gradient: 'from-gray-500/20 via-gray-500/10 to-transparent', iconColor: 'text-gray-400' }
+};
+
+const getDestinationTheme = (destination) => {
+  const lowerDest = destination?.toLowerCase() || '';
+  if (lowerDest.includes('airport') || lowerDest.includes('ord') || lowerDest.includes('mdw')) return destinationThemes['airport'];
+  if (shoppingLocations.some(shop => lowerDest.includes(shop))) return destinationThemes['shopping'];
+  if (downtownKeywords.some(keyword => lowerDest.includes(keyword))) return destinationThemes['downtown'];
+  if (collegeKeywords.some(keyword => lowerDest.includes(keyword))) return destinationThemes['college'];
+  return destinationThemes['default'];
+};
+
+// Format date from Timestamp or string
+const formatRideDate = (date) => {
+  if (!date) return 'No date';
+  let dateObj;
+  if (date?.toDate) {
+    dateObj = date.toDate();
+  } else if (typeof date === 'string') {
+    dateObj = new Date(date + 'T12:00:00');
+  } else {
+    return 'Invalid date';
+  }
+  return dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 };
 
 export default function PublicProfile() {
@@ -85,28 +121,40 @@ export default function PublicProfile() {
         );
 
         // Fetch user's rides (where they are organizer)
-        console.log('Fetching rides for organizerId:', id);
+        // console.log('Fetching rides for organizerId:', id);
         const ridesQuery = query(
           collection(db, 'rides'),
           where('organizerId', '==', id),
           limit(20)
         );
         const ridesSnap = await getDocs(ridesQuery);
-        console.log('Rides found:', ridesSnap.docs.length);
-        ridesSnap.docs.forEach(doc => {
-          console.log('Ride:', doc.id, doc.data());
-        });
+        // console.log('Rides found:', ridesSnap.docs.length);
+        
         // Filter expired rides and sort client-side
-        const today = new Date().toISOString().split('T')[0];
-        console.log('Today for filtering:', today);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Start of today
+        
         const filteredRides = ridesSnap.docs
           .map(doc => ({ id: doc.id, ...doc.data() }))
           .filter(ride => {
-            const isUpcoming = ride.date >= today;
-            console.log('Ride date:', ride.date, 'isUpcoming:', isUpcoming);
-            return isUpcoming;
+            // Handle both Timestamp objects and string dates
+            let rideDate;
+            if (ride.date?.toDate) {
+              // Firestore Timestamp
+              rideDate = ride.date.toDate();
+            } else if (typeof ride.date === 'string') {
+              // String date like "2025-12-19"
+              rideDate = new Date(ride.date);
+            } else {
+              return false;
+            }
+            return rideDate >= today;
           })
-          .sort((a, b) => a.date.localeCompare(b.date))
+          .sort((a, b) => {
+            const dateA = a.date?.toDate ? a.date.toDate() : new Date(a.date);
+            const dateB = b.date?.toDate ? b.date.toDate() : new Date(b.date);
+            return dateA - dateB;
+          })
           .slice(0, 6);
         console.log('Filtered rides:', filteredRides);
         setRides(filteredRides);
@@ -162,9 +210,9 @@ export default function PublicProfile() {
     : 'Recently joined';
 
   return (
-    <div className="w-full min-h-screen bg-transparent pb-32">
+    <div className="w-full min-h-screen bg-transparent pb-32 flex flex-col items-center">
       {/* Header with Back Button */}
-      <div className="backdrop-blur-2xl" style={{ marginTop: "2vh", marginBottom: "2vh" }}>
+      <div className="w-full backdrop-blur-2xl" style={{ marginTop: "2vh", marginBottom: "2vh" }}>
         <div className="max-w-2xl mx-auto px-6 py-4 flex items-center gap-4">
           {/* Back Button */}
           <motion.button
@@ -188,7 +236,7 @@ export default function PublicProfile() {
       </div>
 
       <div 
-        className="max-w-2xl mx-auto py-8"
+        className="w-full max-w-2xl mx-auto py-8"
         style={isMobile ? { paddingLeft: '4vw', paddingRight: '4vw' } : { paddingLeft: '1rem', paddingRight: '1rem' }}
       >
         {/* Profile Header */}
@@ -296,31 +344,62 @@ export default function PublicProfile() {
               <p className="text-gray-400">No upcoming rides</p>
             </div>
           ) : (
-            <div className="space-y-3">
-              {rides.map((ride) => (
-                <motion.div
-                  key={ride.id}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                  onClick={() => router.push(`/ride/${ride.id}`)}
-                  className="bg-white/5 rounded-2xl border border-white/10 p-4 cursor-pointer hover:border-primary/30 transition-all"
-                >
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="font-semibold text-white">{ride.destination}</h4>
-                      <p className="text-sm text-gray-400">
-                        {new Date(ride.date + 'T12:00:00').toLocaleDateString('en-US', { 
-                          month: 'short', 
-                          day: 'numeric' 
-                        })} at {ride.time}
-                      </p>
+            <div className="space-y-4">
+              {rides.map((ride, index) => {
+                const theme = getDestinationTheme(ride.destination);
+                const DestIcon = theme.icon;
+                
+                return (
+                  <motion.div
+                    key={ride.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    whileHover={{ y: -2, scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                    onClick={() => router.push(`/ride/${ride.id}`)}
+                    className="group relative cursor-pointer"
+                  >
+                    {/* Glow Effect */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    
+                    {/* Card */}
+                    <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden group-hover:border-white/20 transition-all duration-300">
+                      {/* Gradient Background */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} opacity-50`} />
+                      
+                      {/* Content */}
+                      <div className="relative p-4 flex items-center gap-4">
+                        {/* Icon */}
+                        <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0">
+                          <DestIcon className={theme.iconColor} size={28} />
+                        </div>
+                        
+                        {/* Info */}
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-bold text-white text-lg truncate">{ride.destination}</h4>
+                          <div className="flex items-center gap-2 text-sm text-gray-400">
+                            <span>{formatRideDate(ride.date)}</span>
+                            <span className="text-gray-600">•</span>
+                            <span>{ride.time}</span>
+                          </div>
+                        </div>
+                        
+                        {/* Right side */}
+                        <div className="flex items-center gap-3">
+                          <div className="text-right">
+                            <div className="flex items-center gap-1 text-sm text-gray-400">
+                              <FiUsers size={14} />
+                              <span>{ride.members || 1}/{ride.seats}</span>
+                            </div>
+                          </div>
+                          <MdArrowRightAlt className="text-primary" size={24} />
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <p className="text-sm text-primary font-semibold">{ride.members}/{ride.seats} seats</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           )}
         </motion.div>
