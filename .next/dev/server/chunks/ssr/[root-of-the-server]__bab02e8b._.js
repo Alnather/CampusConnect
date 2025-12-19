@@ -288,6 +288,9 @@ function Messages() {
     // Fetch threads based on active category
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         if (!user) return;
+        // Clear threads immediately when category changes
+        setThreads([]);
+        setLoading(true);
         if (activeCategory === 'rides') {
             // Fetch ride threads
             const ridesRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides');
@@ -822,7 +825,7 @@ function Messages() {
                         className: "w-16 h-16 mx-auto mb-4 border-4 border-primary/30 border-t-primary rounded-full animate-spin"
                     }, void 0, false, {
                         fileName: "[project]/pages/messages.jsx",
-                        lineNumber: 835,
+                        lineNumber: 839,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -830,18 +833,18 @@ function Messages() {
                         children: "Loading messages..."
                     }, void 0, false, {
                         fileName: "[project]/pages/messages.jsx",
-                        lineNumber: 836,
+                        lineNumber: 840,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/messages.jsx",
-                lineNumber: 834,
+                lineNumber: 838,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/pages/messages.jsx",
-            lineNumber: 833,
+            lineNumber: 837,
             columnNumber: 7
         }, this);
     }
@@ -885,12 +888,12 @@ function Messages() {
                                             className: "text-white"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/messages.jsx",
-                                            lineNumber: 861,
+                                            lineNumber: 865,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/pages/messages.jsx",
-                                        lineNumber: 849,
+                                        lineNumber: 853,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
@@ -898,18 +901,18 @@ function Messages() {
                                         children: 'Messages'
                                     }, void 0, false, {
                                         fileName: "[project]/pages/messages.jsx",
-                                        lineNumber: 863,
+                                        lineNumber: 867,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/messages.jsx",
-                                lineNumber: 848,
+                                lineNumber: 852,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/messages.jsx",
-                            lineNumber: 847,
+                            lineNumber: 851,
                             columnNumber: 11
                         }, this),
                         (!selectedThread || !isMobile) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -941,7 +944,7 @@ function Messages() {
                                             size: 18
                                         }, void 0, false, {
                                             fileName: "[project]/pages/messages.jsx",
-                                            lineNumber: 897,
+                                            lineNumber: 901,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -949,7 +952,7 @@ function Messages() {
                                             children: category.label
                                         }, void 0, false, {
                                             fileName: "[project]/pages/messages.jsx",
-                                            lineNumber: 898,
+                                            lineNumber: 902,
                                             columnNumber: 21
                                         }, this),
                                         categoryUnread > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -957,30 +960,30 @@ function Messages() {
                                             children: categoryUnread > 9 ? '9+' : categoryUnread
                                         }, void 0, false, {
                                             fileName: "[project]/pages/messages.jsx",
-                                            lineNumber: 900,
+                                            lineNumber: 904,
                                             columnNumber: 23
                                         }, this)
                                     ]
                                 }, category.id, true, {
                                     fileName: "[project]/pages/messages.jsx",
-                                    lineNumber: 885,
+                                    lineNumber: 889,
                                     columnNumber: 19
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/pages/messages.jsx",
-                            lineNumber: 871,
+                            lineNumber: 875,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/messages.jsx",
-                    lineNumber: 846,
+                    lineNumber: 850,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/messages.jsx",
-                lineNumber: 845,
+                lineNumber: 849,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1003,7 +1006,7 @@ function Messages() {
                                         size: 48
                                     }, void 0, false, {
                                         fileName: "[project]/pages/messages.jsx",
-                                        lineNumber: 928,
+                                        lineNumber: 932,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -1015,13 +1018,13 @@ function Messages() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/messages.jsx",
-                                        lineNumber: 929,
+                                        lineNumber: 933,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/messages.jsx",
-                                lineNumber: 927,
+                                lineNumber: 931,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                 className: "divide-y divide-white/5",
@@ -1095,29 +1098,36 @@ function Messages() {
                                             className: "flex items-center gap-3",
                                             children: [
                                                 thread.type === 'marketplace' && thread.productPhoto ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                    className: "w-12 h-12 rounded-full overflow-hidden flex-shrink-0 relative bg-[#0D0D0D]",
+                                                    className: "relative flex-shrink-0",
                                                     children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
-                                                            src: thread.productPhoto,
-                                                            alt: "",
-                                                            className: "w-full h-full object-cover"
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                            className: "w-12 h-12 rounded-full overflow-hidden bg-[#0D0D0D]",
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
+                                                                src: thread.productPhoto,
+                                                                alt: "",
+                                                                className: "w-full h-full object-cover"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/pages/messages.jsx",
+                                                                lineNumber: 1004,
+                                                                columnNumber: 31
+                                                            }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 999,
+                                                            lineNumber: 1003,
                                                             columnNumber: 29
                                                         }, this),
                                                         hasUnread && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                            className: "absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1 shadow-lg",
+                                                            className: "absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1 shadow-lg z-10",
                                                             children: thread.unreadCount > 9 ? '9+' : thread.unreadCount
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1001,
+                                                            lineNumber: 1007,
                                                             columnNumber: 31
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/messages.jsx",
-                                                    lineNumber: 998,
+                                                    lineNumber: 1002,
                                                     columnNumber: 27
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                     className: `w-12 h-12 rounded-full bg-gradient-to-br ${theme.bg} flex items-center justify-center flex-shrink-0 relative`,
@@ -1127,7 +1137,7 @@ function Messages() {
                                                             size: 24
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1008,
+                                                            lineNumber: 1014,
                                                             columnNumber: 29
                                                         }, this),
                                                         hasUnread && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1135,13 +1145,13 @@ function Messages() {
                                                             children: thread.unreadCount > 9 ? '9+' : thread.unreadCount
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1010,
+                                                            lineNumber: 1016,
                                                             columnNumber: 31
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/messages.jsx",
-                                                    lineNumber: 1007,
+                                                    lineNumber: 1013,
                                                     columnNumber: 27
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1155,7 +1165,7 @@ function Messages() {
                                                                     children: thread.title
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pages/messages.jsx",
-                                                                    lineNumber: 1020,
+                                                                    lineNumber: 1026,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -1166,13 +1176,13 @@ function Messages() {
                                                                     children: formatTime(thread.lastMessageTime)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pages/messages.jsx",
-                                                                    lineNumber: 1023,
+                                                                    lineNumber: 1029,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1019,
+                                                            lineNumber: 1025,
                                                             columnNumber: 27
                                                         }, this),
                                                         thread.type === 'marketplace' && thread.subtitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -1180,7 +1190,7 @@ function Messages() {
                                                             children: thread.subtitle
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1029,
+                                                            lineNumber: 1035,
                                                             columnNumber: 29
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -1188,40 +1198,40 @@ function Messages() {
                                                             children: getLastMessagePreview(thread)
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1031,
+                                                            lineNumber: 1037,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/messages.jsx",
-                                                    lineNumber: 1018,
+                                                    lineNumber: 1024,
                                                     columnNumber: 25
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/messages.jsx",
-                                            lineNumber: 995,
+                                            lineNumber: 999,
                                             columnNumber: 23
                                         }, this)
                                     }, thread.id, false, {
                                         fileName: "[project]/pages/messages.jsx",
-                                        lineNumber: 986,
+                                        lineNumber: 990,
                                         columnNumber: 21
                                     }, this);
                                 })
                             }, void 0, false, {
                                 fileName: "[project]/pages/messages.jsx",
-                                lineNumber: 932,
+                                lineNumber: 936,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/messages.jsx",
-                            lineNumber: 925,
+                            lineNumber: 929,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/messages.jsx",
-                        lineNumber: 915,
+                        lineNumber: 919,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1247,12 +1257,12 @@ function Messages() {
                                             size: 64
                                         }, void 0, false, {
                                             fileName: "[project]/pages/messages.jsx",
-                                            lineNumber: 1057,
+                                            lineNumber: 1063,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/pages/messages.jsx",
-                                        lineNumber: 1052,
+                                        lineNumber: 1058,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
@@ -1260,7 +1270,7 @@ function Messages() {
                                         children: "Select a conversation"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/messages.jsx",
-                                        lineNumber: 1059,
+                                        lineNumber: 1065,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -1268,18 +1278,18 @@ function Messages() {
                                         children: "Choose a thread from the left to start messaging"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/messages.jsx",
-                                        lineNumber: 1060,
+                                        lineNumber: 1066,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/messages.jsx",
-                                lineNumber: 1051,
+                                lineNumber: 1057,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/messages.jsx",
-                            lineNumber: 1050,
+                            lineNumber: 1056,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
                             children: [
@@ -1300,12 +1310,12 @@ function Messages() {
                                                             size: 20
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1074,
+                                                            lineNumber: 1080,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/messages.jsx",
-                                                        lineNumber: 1073,
+                                                        lineNumber: 1079,
                                                         columnNumber: 25
                                                     }, this);
                                                 })(),
@@ -1316,7 +1326,7 @@ function Messages() {
                                                             children: selectedThread.title
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1079,
+                                                            lineNumber: 1085,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -1327,29 +1337,29 @@ function Messages() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1080,
+                                                            lineNumber: 1086,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/messages.jsx",
-                                                    lineNumber: 1078,
+                                                    lineNumber: 1084,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/messages.jsx",
-                                            lineNumber: 1068,
+                                            lineNumber: 1074,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/pages/messages.jsx",
-                                        lineNumber: 1067,
+                                        lineNumber: 1073,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/pages/messages.jsx",
-                                    lineNumber: 1066,
+                                    lineNumber: 1072,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1368,12 +1378,12 @@ function Messages() {
                                                         size: 32
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/messages.jsx",
-                                                        lineNumber: 1094,
+                                                        lineNumber: 1100,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/messages.jsx",
-                                                    lineNumber: 1093,
+                                                    lineNumber: 1099,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -1381,7 +1391,7 @@ function Messages() {
                                                     children: "No messages yet"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/messages.jsx",
-                                                    lineNumber: 1096,
+                                                    lineNumber: 1102,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -1389,13 +1399,13 @@ function Messages() {
                                                     children: "Be the first to say hi! 👋"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/messages.jsx",
-                                                    lineNumber: 1097,
+                                                    lineNumber: 1103,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/messages.jsx",
-                                            lineNumber: 1092,
+                                            lineNumber: 1098,
                                             columnNumber: 19
                                         }, this) : messages.map((message, index)=>{
                                             const isOwn = message.senderId === user?.uid;
@@ -1452,12 +1462,12 @@ function Messages() {
                                                                 })()
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/messages.jsx",
-                                                                lineNumber: 1142,
+                                                                lineNumber: 1148,
                                                                 columnNumber: 31
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1141,
+                                                            lineNumber: 1147,
                                                             columnNumber: 29
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1469,23 +1479,23 @@ function Messages() {
                                                                     children: message.text
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pages/messages.jsx",
-                                                                    lineNumber: 1164,
+                                                                    lineNumber: 1170,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/messages.jsx",
-                                                                lineNumber: 1163,
+                                                                lineNumber: 1169,
                                                                 columnNumber: 29
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1162,
+                                                            lineNumber: 1168,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, message.id, true, {
                                                     fileName: "[project]/pages/messages.jsx",
-                                                    lineNumber: 1138,
+                                                    lineNumber: 1144,
                                                     columnNumber: 25
                                                 }, this);
                                             }
@@ -1513,12 +1523,12 @@ function Messages() {
                                                             })()
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/messages.jsx",
-                                                            lineNumber: 1176,
+                                                            lineNumber: 1182,
                                                             columnNumber: 29
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/messages.jsx",
-                                                        lineNumber: 1175,
+                                                        lineNumber: 1181,
                                                         columnNumber: 27
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -1543,12 +1553,12 @@ function Messages() {
                                                                     children: message.senderName?.charAt(0).toUpperCase()
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pages/messages.jsx",
-                                                                    lineNumber: 1209,
+                                                                    lineNumber: 1215,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/messages.jsx",
-                                                                lineNumber: 1205,
+                                                                lineNumber: 1211,
                                                                 columnNumber: 29
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1559,7 +1569,7 @@ function Messages() {
                                                                         children: message.senderName
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/pages/messages.jsx",
-                                                                        lineNumber: 1218,
+                                                                        lineNumber: 1224,
                                                                         columnNumber: 31
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1581,42 +1591,42 @@ function Messages() {
                                                                                 onClick: ()=>window.open(message.imageUrl, '_blank')
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/pages/messages.jsx",
-                                                                                lineNumber: 1239,
+                                                                                lineNumber: 1245,
                                                                                 columnNumber: 35
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/messages.jsx",
-                                                                            lineNumber: 1238,
+                                                                            lineNumber: 1244,
                                                                             columnNumber: 33
                                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                                                                             className: "text-sm leading-relaxed break-words",
                                                                             children: message.text
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/messages.jsx",
-                                                                            lineNumber: 1247,
+                                                                            lineNumber: 1253,
                                                                             columnNumber: 33
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/pages/messages.jsx",
-                                                                        lineNumber: 1222,
+                                                                        lineNumber: 1228,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/pages/messages.jsx",
-                                                                lineNumber: 1215,
+                                                                lineNumber: 1221,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/pages/messages.jsx",
-                                                        lineNumber: 1197,
+                                                        lineNumber: 1203,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, message.id, true, {
                                                 fileName: "[project]/pages/messages.jsx",
-                                                lineNumber: 1172,
+                                                lineNumber: 1178,
                                                 columnNumber: 23
                                             }, this);
                                         }),
@@ -1624,13 +1634,13 @@ function Messages() {
                                             ref: messagesEndRef
                                         }, void 0, false, {
                                             fileName: "[project]/pages/messages.jsx",
-                                            lineNumber: 1256,
+                                            lineNumber: 1262,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/messages.jsx",
-                                    lineNumber: 1090,
+                                    lineNumber: 1096,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1655,7 +1665,7 @@ function Messages() {
                                                 className: "flex-1 bg-transparent border-none focus:outline-none text-sm py-1 text-white placeholder-gray-400"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/messages.jsx",
-                                                lineNumber: 1263,
+                                                lineNumber: 1269,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
@@ -1677,47 +1687,47 @@ function Messages() {
                                                         d: "M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/messages.jsx",
-                                                        lineNumber: 1284,
+                                                        lineNumber: 1290,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/messages.jsx",
-                                                    lineNumber: 1283,
+                                                    lineNumber: 1289,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/messages.jsx",
-                                                lineNumber: 1272,
+                                                lineNumber: 1278,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/messages.jsx",
-                                        lineNumber: 1261,
+                                        lineNumber: 1267,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/pages/messages.jsx",
-                                    lineNumber: 1260,
+                                    lineNumber: 1266,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true)
                     }, void 0, false, {
                         fileName: "[project]/pages/messages.jsx",
-                        lineNumber: 1045,
+                        lineNumber: 1051,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/messages.jsx",
-                lineNumber: 913,
+                lineNumber: 917,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/messages.jsx",
-        lineNumber: 843,
+        lineNumber: 847,
         columnNumber: 5
     }, this);
 }

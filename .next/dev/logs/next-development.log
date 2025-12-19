@@ -197,3 +197,8 @@
 [01:50:47.602] Browser LOG     Could not update user products array: {"code":"permission-denied","name":"FirebaseError"}
 [01:50:52.949] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
 [01:52:17.413] Server  LOG      ✓ Compiled in 41ms
+[01:56:16.602] Browser ERROR   [2025-12-19T21:42:33.983Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:56:16.602] Browser ERROR   [2025-12-19T21:42:33.984Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:59:51.154] Server  LOG      ✓ Compiled in 89ms
+[02:00:50.079] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[02:02:08.266] Server  LOG      ✓ Compiled in 49ms

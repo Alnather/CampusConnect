@@ -209,6 +209,10 @@ export default function Messages() {
   useEffect(() => {
     if (!user) return;
 
+    // Clear threads immediately when category changes
+    setThreads([]);
+    setLoading(true);
+
     if (activeCategory === 'rides') {
       // Fetch ride threads
       const ridesRef = collection(db, 'rides');
@@ -995,10 +999,12 @@ export default function Messages() {
                       <div className="flex items-center gap-3">
                         {/* Icon/Avatar - use product photo for marketplace */}
                         {thread.type === 'marketplace' && thread.productPhoto ? (
-                          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 relative bg-[#0D0D0D]">
-                            <img src={thread.productPhoto} alt="" className="w-full h-full object-cover" />
+                          <div className="relative flex-shrink-0">
+                            <div className="w-12 h-12 rounded-full overflow-hidden bg-[#0D0D0D]">
+                              <img src={thread.productPhoto} alt="" className="w-full h-full object-cover" />
+                            </div>
                             {hasUnread && (
-                              <div className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1 shadow-lg">
+                              <div className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1 shadow-lg z-10">
                                 {thread.unreadCount > 9 ? '9+' : thread.unreadCount}
                               </div>
                             )}
